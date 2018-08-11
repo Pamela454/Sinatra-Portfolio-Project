@@ -1,5 +1,5 @@
 class Patient < ActiveRecord::Base
-  belongs_to :doctor
+  belongs_to :physician
 
   validates :username, :presence => true, :uniqueness => true
   validates :password, :presence => true
