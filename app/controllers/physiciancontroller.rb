@@ -1,0 +1,3 @@
+class PhysicianController < ApplicationController
+
+end
