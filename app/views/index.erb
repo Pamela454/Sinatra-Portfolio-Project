@@ -1,0 +1,16 @@
+<h2>Welcome to your electronic health record</h2>
+<p>Please signin below:</p>
+
+<nav>
+  <% if logged_in? %>
+
+    <a href="/patients/new"> Enter Patient Data </a>
+    <a href="/logout"> Log Out </a>
+    <p>Welcome, <%=current_user.username %></p>
+
+  <% else %>
+    <br>
+    <a href="/login"> Sign In </a>
+  <%end %>
+
+</nav>
