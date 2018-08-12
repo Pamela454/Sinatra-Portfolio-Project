@@ -1,4 +1,9 @@
+require 'sinatra/base' #is this necessary?
+require 'rack-flash'
+
 class PhysicianController < ApplicationController
+  enable :sessions
+  use Rack::Flash
 
   get "/signup" do
     if logged_in?
@@ -12,7 +17,7 @@ class PhysicianController < ApplicationController
     @new_user = Physician.new(username: params[:username], npi: params[:npi], password: params[:password])
 
     if @new_user.save
-      session[:user_id] = @new_user.id
+      session[:id] = @new_user.id
       redirect "/patients"
     else
       redirect "/signup"
@@ -24,7 +29,7 @@ class PhysicianController < ApplicationController
     if logged_in?
       redirect "/patients"
     else
-      erb :"/users/login"
+      erb :"/physician/login"
     end
   end
 

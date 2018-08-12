@@ -1,1 +1,8 @@
-<%= @patient.content %>
+<p>Welcome, to your Patient Page</p>
+
+<% @patients.each do |patient| %>
+  <p>---> <%= patient.content%> </p>
+<%end%>
+
+
+<a class="button" href="patients/new">New Patient</a>

@@ -4,6 +4,7 @@ source "https://rubygems.org"
 gem 'sinatra'
 gem 'activerecord', '4.2.7.1', :require => 'active_record'
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
+gem 'rack-flash3'
 gem 'rake'
 gem 'require_all'
 gem 'sqlite3'

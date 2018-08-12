@@ -1,4 +1,9 @@
+require 'sinatra/base' #is this necessary?
+require 'rack-flash'
+
 class PatientController < ApplicationController
+  enable :sessions
+  use Rack::Flash
 
   get '/login' do
     if logged_in?

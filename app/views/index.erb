@@ -1,5 +1,5 @@
 <h2>Welcome to your electronic health record</h2>
-<p>Please signin below:</p>
+<p>Please sign in below:</p>
 
 <nav>
   <% if logged_in? %>
@@ -10,7 +10,8 @@
 
   <% else %>
     <br>
-    <a href="/login"> Sign In </a>
+    <a href="users/login"> Physician Sign In </a>
+    <a href="/login"> Patient Sign In </a>
   <%end %>
 
 </nav>
