@@ -9,4 +9,9 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "dumb_word"
   end
 
+  get "/" do
+    erb :index
+  end
+
+
 end
