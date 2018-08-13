@@ -27,9 +27,9 @@ class PhysicianController < ApplicationController
 
   get '/login' do
     if logged_in?
-      redirect "/patients"
+      redirect "/patients"  #needs to be restful?
     else
-      erb :"/physician/login"
+      erb :"/physicians/login"
     end
   end
 
@@ -39,7 +39,7 @@ class PhysicianController < ApplicationController
           session[:physician_id] = @physician.id
           redirect '/patients'
       else
-          redirect '/login'
+          redirect '/physicians/login'
       end
     end
 
