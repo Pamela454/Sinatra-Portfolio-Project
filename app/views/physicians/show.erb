@@ -1,5 +1,9 @@
 <p>Welcome, to your Patient Page</p>
 
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
 <% @patients.each do |patient| %>
   <p>---> <%= patient.content%> </p>
 <%end%>

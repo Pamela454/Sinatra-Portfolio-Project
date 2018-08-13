@@ -1,5 +1,9 @@
 <h2> Login </h2>
 
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
 <form method="post" action="/patients/login">
   <label>Username</label><br>
   <input type="text" name="username">
