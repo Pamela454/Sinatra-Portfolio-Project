@@ -45,6 +45,40 @@ class PhysicianController < ApplicationController
       end
     end
 
+    #need to edit registration
+    get "/physicians/:id" do
+    if logged_in?
+      @physician = Physician.find_by(id: params[:id])
+      erb :"/physicians/show"
+    else
+      redirect "/physicians/login"
+    end
+  end
+
+  get "/physicians/:id/edit" do
+    @physician = Physician.find_by(id: params[:id])
+
+    if !logged_in?
+      redirect "/physicians/login"
+    elsif current_user.id == @physician.physician_id
+      erb :"/physicians/edit_physician"
+    else
+      redirect "/physicians/show"
+    end
+  end
+
+  post "/physicians/:id" do
+    @physician = Physician.find_by(id: params[:id])
+
+    if params[:content] != ""
+      @physician.content = params[:content]
+      @physician.save
+      redirect "/physicians/#{@physician.id}"
+    else
+      redirect "/physicians/#{@physician.id}/edit"
+    end
+  end
+
     get '/logout' do
       session.clear
       redirect "/login"

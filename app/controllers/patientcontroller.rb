@@ -24,6 +24,39 @@ class PatientController < ApplicationController
       end
     end
 
+    get "/patients/:id" do
+    if logged_in?
+      @patient = Patient.find_by(id: params[:id])
+      erb :"/patients/show"
+    else
+      redirect "/patients/login"
+    end
+  end
+
+  get "/patients/:id/edit" do
+    @patient = Patient.find_by(id: params[:id])
+
+    if !logged_in?
+      redirect "/patients/login"
+    elsif current_user.id == @patient.physician_id
+      erb :"/patients/edit_patient"
+    else
+      redirect "/patients/show"
+    end
+  end
+
+  post "/patients/:id" do
+    @patient = Patient.find_by(id: params[:id])
+
+    if params[:content] != ""
+      @patient.content = params[:content]
+      @patient.save
+      redirect "/patients/#{@patient.id}"
+    else
+      redirect "/patients/#{@patient.id}/edit"
+    end
+  end
+
     get '/logout' do
       session.clear
       redirect "/patients/login"
