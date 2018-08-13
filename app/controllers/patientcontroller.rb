@@ -17,6 +17,7 @@ class PatientController < ApplicationController
     @patient = Patient.find_by(username: params[:username])
       if @patient && @patient.authenticate(params[:password])
           session[:patient_id] = @patient.id
+          flash[:message] = "Successfull login."
           redirect '/patients/login'  #restful display
       else
           redirect '/patients/login'

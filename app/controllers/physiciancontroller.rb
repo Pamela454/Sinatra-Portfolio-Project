@@ -18,7 +18,8 @@ class PhysicianController < ApplicationController
 
     if @new_user.save
       session[:id] = @new_user.id
-      redirect "/patients"
+      flash[:message] = "Successfully created profile."
+      erb :"/physicians/show"
     else
       erb :"/physicians/create_physician"
     end
@@ -33,11 +34,12 @@ class PhysicianController < ApplicationController
     end
   end
 
-  post '/login' do
+  post 'physicians/login' do
     @physician = Physician.find_by(username: params[:username])
       if @physician && @physician.authenticate(params[:password])
-          session[:physician_id] = @physician.id
-          redirect '/patients'
+          session[:id] = @physician.id
+          flash[:message] = "Successfull login."
+          redirect '/physicians/show'
       else
           redirect '/physicians/login'
       end

@@ -5,6 +5,6 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 use Rack::MethodOverride #middleware that provides put, patch, delete requests
+run ApplicationController
 use PatientController
 use PhysicianController
-run ApplicationController
