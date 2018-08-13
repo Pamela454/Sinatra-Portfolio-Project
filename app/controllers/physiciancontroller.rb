@@ -5,27 +5,27 @@ class PhysicianController < ApplicationController
   enable :sessions
   use Rack::Flash
 
-  get "/signup" do
+  get "/physicians/signup" do
     if logged_in?
-      redirect '/patients'
+      redirect '/physicians/login'
     else
-      erb :"/users/create_physician"
+      erb :"/physicians/create_physician"
     end
   end
 
-  post "/signup" do
+  post "/physicians/signup" do
     @new_user = Physician.new(username: params[:username], npi: params[:npi], password: params[:password])
 
     if @new_user.save
       session[:id] = @new_user.id
       redirect "/patients"
     else
-      redirect "/signup"
+      erb :"/physicians/create_physician"
     end
 
   end
 
-  get '/login' do
+  get '/physicians/login' do
     if logged_in?
       redirect "/patients"  #needs to be restful?
     else
