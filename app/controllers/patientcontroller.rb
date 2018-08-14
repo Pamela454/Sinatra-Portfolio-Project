@@ -24,6 +24,15 @@ class PatientController < ApplicationController
       end
     end
 
+    get '/patients/:id' do
+      if logged_in?
+      @patient = Patient.find_by(id: params[:id])
+      erb :"/patients/show"
+    else
+      redirect "/login"
+    end
+  end
+
     get '/logout' do
       session.clear
       redirect "/patients/login"
