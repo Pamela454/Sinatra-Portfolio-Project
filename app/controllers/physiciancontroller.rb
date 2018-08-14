@@ -15,7 +15,7 @@ class PhysicianController < ApplicationController
 
   post "/physicians/signup" do
     @new_user = Physician.new(username: params[:username], npi: params[:npi], password: params[:password])
-
+    #grab data from params hash and save as a new user
     if @new_user.save
       session[:id] = @new_user.id
       flash[:message] = "Successfully created profile."
@@ -27,7 +27,7 @@ class PhysicianController < ApplicationController
   end
 
   get '/physicians/login' do
-    if logged_in?
+    if logged_in?  #use helper method, needs to be physician specific
       redirect "/patients"  #needs to be restful?
     else
       erb :"/physicians/login"
@@ -45,7 +45,6 @@ class PhysicianController < ApplicationController
       end
     end
 
-    #need to edit registration
     get "/physicians/:id" do
     if logged_in?
       @physician = Physician.find_by(id: params[:id])
@@ -78,6 +77,39 @@ class PhysicianController < ApplicationController
       redirect "/physicians/#{@physician.id}/edit"
     end
   end
+
+  get "/patients/:id" do
+  if logged_in?
+    @patient = Patient.find_by(id: params[:id])
+    erb :"/patients/show"
+  else
+    redirect "/patients/login"
+  end
+end
+
+get "/patients/:id/edit" do
+  @patient = Patient.find_by(id: params[:id])
+
+  if !logged_in?
+    redirect "/patients/login"
+  elsif current_user.id == @patient.physician_id
+    erb :"/patients/edit_patient"
+  else
+    redirect "/patients/show"
+  end
+end
+
+post "/patients/:id" do
+  @patient = Patient.find_by(id: params[:id])
+
+  if params[:content] != ""
+    @patient.content = params[:content]
+    @patient.save
+    redirect "/patients/#{@patient.id}"
+  else
+    redirect "/patients/#{@patient.id}/edit"
+  end
+end
 
     get '/logout' do
       session.clear

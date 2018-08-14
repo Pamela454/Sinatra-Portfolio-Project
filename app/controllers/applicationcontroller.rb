@@ -5,7 +5,7 @@ class ApplicationController < Sinatra::Base
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
-    enable :sessions
+    enable :sessions  #stores users ID
     set :session_secret, "dumb_word"
   end
 
@@ -15,12 +15,18 @@ class ApplicationController < Sinatra::Base
 
   helpers do
 		def logged_in?
-			session[:user_id] != nil
+			session[:id] != nil
 		end
 
-		def current_user
-		  if session[:user_id]
-			  Patient.find(session[:user_id])
+		def patient_current_user
+		  if session[:id]
+			  Patient.find(session[:id])
+			end
+		end
+
+    def physician_current_user
+		  if session[:id]
+			  Physician.find(session[:id])
 			end
 		end
   end

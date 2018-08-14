@@ -1,0 +1,13 @@
+<h1>Edit Your Physician Record:</h1>
+
+<form action="/physicians/:id <%=@physician.id%>" method="POST">
+  <label for="username">Username</label><br>
+  <input id="name" type="text" name="physician[username]" value=<%=@physician.name%> ><br>
+  <label for="password">Password</label><br>
+  <input id="password" type="text" name="physician[password]" value=<%=@physician.password%>><br>
+
+  <input type="submit" value="Edit Physician">
+</form>
+
+
+#instance variable is defined in controller from route that renders this view 
