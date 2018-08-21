@@ -2,22 +2,21 @@ require 'sinatra/base' #is this necessary?
 require 'rack-flash'
 
 class PhysicianController < ApplicationController
-  enable :sessions
-  use Rack::Flash
+    use Rack::Flash
 
   get "/physicians/signup" do
     if logged_in?
-      redirect '/physicians/login'
+      redirect '/physicians/:id'
     else
-      erb :"/physicians/create_physician"
+      erb :"/physicians/create_physician"  #render when current request has data that we need
     end
   end
 
-  post "/physicians/signup" do
+  post "/physicians" do #maintain restful convention
+    raise params.inspect #check data that is passed from form.
     @new_user = Physician.new(username: params[:username], npi: params[:npi], password: params[:password])
     #grab data from params hash and save as a new user
     if @new_user.save
-      session[:id] = @new_user.id
       flash[:message] = "Successfully created profile."
       erb :"/physicians/show"
     else
@@ -28,7 +27,7 @@ class PhysicianController < ApplicationController
 
   get '/physicians/login' do
     if logged_in?  #use helper method, needs to be physician specific
-      redirect "/patients"  #needs to be restful?
+      erb  :"/physicians/show"  #needs to be restful?
     else
       erb :"/physicians/login"
     end
@@ -37,7 +36,7 @@ class PhysicianController < ApplicationController
   post 'physicians/login' do
     @physician = Physician.find_by(username: params[:username])
       if @physician && @physician.authenticate(params[:password])
-          session[:id] = @physician.id
+          session[:id] = @physician.id  #session hash persists throughout session. Any controller can access.
           flash[:message] = "Successfull login."
           redirect '/physicians/show'
       else
@@ -111,9 +110,9 @@ post "/patients/:id" do
   end
 end
 
-    get '/logout' do
-      session.clear
-      redirect "/login"
-    end
+  get '/logout' do
+    session.clear
+    redirect "/login"
+  end
 
 end

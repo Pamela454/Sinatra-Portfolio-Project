@@ -6,7 +6,7 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     set :views, 'app/views'
     enable :sessions  #stores users ID
-    set :session_secret, "dumb_word"
+    set :session_secret, "physician_editor"
   end
 
   get "/" do
