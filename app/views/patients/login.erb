@@ -3,8 +3,10 @@
 <% if flash.has?(:message) %>
   <%= flash[:message] %>
 <% end %>
-
-<form method="post" action="/patients">
+<br>
+<br>
+<br>
+<form method="post" action="/patients/login">
   <label>Username</label><br>
   <input type="text" name="username">
   <br>
@@ -17,8 +19,8 @@
 
   <input type="submit" id="submit" value="Login">
 
-  <h3>Not yet a patient member? Sign Up here:</h3>
+  <!--<h3>Not yet a patient member? Sign Up here:</h3>
 
-  <a href="/patients/new"> Sign Up </a>
+  <a href="/patients/signup"> Sign Up </a>-->
 
 </form>

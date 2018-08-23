@@ -1,13 +1,17 @@
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
 <h2> Physician Signup </h2>
 
-<form method="post" action="/signup">
+<form method="post" action="/physicians/signup">
   <label>Username</label><br>
   <input type="text" name="NPI">
   <br>
   <br>
   <label>NPI</label><br>
   <input type="text" name="password">
-  <br> 
+  <br>
   <br>
   <label>Password</label><br>
   <input type="text" name="username">

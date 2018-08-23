@@ -8,35 +8,36 @@ class PatientController < ApplicationController
     if logged_in?
       redirect "/patients/show"  #needs to be restful route
     else
+      flash[:message] = "Please login to your profile."
       erb :"/patients/login" #forms send data to the server
     end
   end
 
-  get "/patients/new" do
-    if logged_in?
-        erb :"/patients/new"
-    else
-      redirect "/"
-    end
+  post '/patients/login' do
+    @patient = Patient.find_by(username: params[:username])
+    session[:user_id] = @patient.id
+    #raise @patient.inspect
+      if @patient != nil
+          redirect '/patients/:id'
+      else
+          redirect '/patients/login'
+      end
   end
 
   get '/patients/:id' do  #creating a route variable. should always be after patients/new route
-      #raise params.inspect
-      @patient.id = params[:id]
-      @patient.username = params[:username]
-      erb :"/patients/show"
+    @patient = Patient.find_by(id: session[:user_id])
+    #session[:user_id] = @patient.id
+      if session[:user_id] != nil
+        flash[:message] = "Successfull login."
+        erb :"/patients/show"
+      else
+        redirect '/patients/login'
+      end
   end
 
-  post '/patients' do
-      @new_patient = Patient.new(username: params[:username], password: params[:password])
+  #post '/patients/:id' do
 
-      if @new_patient.save
-      redirect "/books/#{@new_patient.id}"
-    else
-      flash[:message] = "Error: Invalid Patient Info"
-      redirect "/patients/new"
-    end
-  end
+  #end
 
   get '/logout' do
       session.clear

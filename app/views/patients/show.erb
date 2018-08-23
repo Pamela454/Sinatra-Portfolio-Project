@@ -1,9 +1,16 @@
-#can only transmit strings across the internet. name and value corresponds to key and value
-in params hash.
-
+<!--can only transmit strings across the internet. name and value corresponds to key and value
+in params hash.-->
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+<br>
+<br>
+<br>
 <p>
     <h2> Name: <%= @patient.username %></h2>
     <br>
     <br>
 
 </p>
+
+<a class="button" href="/logout">Logout</a>
