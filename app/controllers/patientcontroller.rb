@@ -6,10 +6,10 @@ class PatientController < ApplicationController
 
   get '/patients/login' do
     if logged_in?
-      redirect "/patients/show"  #needs to be restful route
+      erb :"/patients/show"
     else
       flash[:message] = "Please login to your profile."
-      erb :"/patients/login" #forms send data to the server
+      erb :"/patients/login"
     end
   end
 
@@ -24,23 +24,39 @@ class PatientController < ApplicationController
       end
   end
 
+  get '/patients/new' do
+    if logged_in?
+      erb :"/patients/new"
+    else
+      redirect '/login'
+    end
+  end
+
+  post '/patients/new' do
+      params[:username] && params[:password] != nil
+      @patient = Patient.create(username: params[:username], password: params[:password])
+      erb :"/physicians/show"
+  end
+
+
   get '/patients/:id' do  #creating a route variable. should always be after patients/new route
     @patient = Patient.find_by(id: session[:user_id])
     #session[:user_id] = @patient.id
       if session[:user_id] != nil
-        flash[:message] = "Successfull login."
+        flash[:message] = "Successful login."
         erb :"/patients/show"
       else
         redirect '/patients/login'
       end
   end
 
-  #post '/patients/:id' do
-
-  #end
+  get '/patients/:id/edit' do
+    @patient = Patient.find(params[:id])
+    erb :"/patients/edit"
+  end
 
   get '/logout' do
       session.clear
-      redirect "/patients/login"
+      redirect "/login"
   end
 end

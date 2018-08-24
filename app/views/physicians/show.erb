@@ -5,11 +5,12 @@
 <% end %>
 
 <% @patients.each do |patient| %>
-  <p>---> <%= patient.username%> </p>
+  <p>---> <%= patient.username%> <a class="button" href="/patients/<%=patient.id%>/edit">Edit Patient</a></p>
 <%end%>
 
 <p>Click to edit or add a new patient below.</p>
 
 <a class="button" href="/patients/new">New Patient</a>
-<a class="button" href="/patients/new">Edit Patient</a>
+<br>
+<br>
 <a class="button" href="/logout">Logout</a>

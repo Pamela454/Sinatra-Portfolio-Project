@@ -3,11 +3,11 @@
 <nav>
   <% if logged_in? %>
 
-    <a href="/patients/new"> For Physician Use: Enter Patient Data </a>
+    <a href="/physicians/<%= @physician.id %>"> Physician Profile Page </a>
     <br>
     <br>
     <br>
-    <a href="/patients/show"> For Patient Use: View Your Profile </a>
+    <a href="/patients/<%= @patient.id %>"> Patient Profile Page </a>
     <br>
     <br>
     <br>

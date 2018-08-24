@@ -46,7 +46,7 @@ class PhysicianController < ApplicationController
       if @physician && @physician.authenticate(params[:password])
           session[:id] = @physician.id  #session hash persists throughout session. Any controller can access.
           flash[:message] = "Successful login."
-          erb :"/physicians/show"
+          redirect "/physicians/#{@physician.id}"
       else
           redirect '/physicians/login'
       end
@@ -55,6 +55,7 @@ class PhysicianController < ApplicationController
     get "/physicians/:id" do
     if logged_in?
       @physician = Physician.find_by(id: params[:id])
+      @patients = @physician.patients
       erb :"/physicians/show"
     else
       redirect "/physicians/login"
@@ -72,39 +73,6 @@ class PhysicianController < ApplicationController
       redirect "/physicians/show"
     end
   end
-
-#  post "/physicians/:id" do
-#    @physician = Physician.find_by(id: params[:id])
-#
-#    if params[:id] != ""
-#      @physician.id = params[:id]
-#      @physician.save
-#      redirect "/physicians/#{@physician.id}"
-#    else
-#      redirect "/physicians/#{@physician.id}/edit"
-#    end
-#  end
-
-  get "/patients/:id" do
-  if logged_in?
-    @patient = Patient.find_by(id: params[:id])
-    erb :"/patients/show"
-  else
-    redirect "/patients/login"
-  end
-end
-
-get "/patients/:id/edit" do
-  @patient = Patient.find_by(id: params[:id])
-
-  if !logged_in?
-    redirect "/patients/login"
-  elsif current_user.id == @patient.physician_id
-    erb :"/patients/edit_patient"
-  else
-    redirect "/patients/show"
-  end
-end
 
 post "/patients/:id" do
   @patient = Patient.find_by(id: params[:id])
