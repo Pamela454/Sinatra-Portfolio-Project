@@ -12,8 +12,9 @@
 <a class="button" href="/patients/<%=patient.id%>/edit">Edit Patient</a>
 <br>
 <br>
-<form method="post" action="/patients/<%= patient.id/delete %>">
-<a class="button" href="/patients/<%= patient.id %>/delete">Delete</a>
+<form method="post" action="/patients/<%= patient.id %>/delete">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="delete">
 </form>
 <br>
 <%end%>
