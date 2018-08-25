@@ -55,6 +55,34 @@ class PatientController < ApplicationController
     erb :"/patients/edit"
   end
 
+  post "/patients/:id" do
+    @patient = Patient.find_by(id: params[:id])
+    @physician = Physician.find_by(id: session[:id])
+    if params[:username] && params[:password] != nil
+      @patient.save
+      flash[:message] = "Welcome to your physician page. Please find your patients listed below:"
+      redirect "/physicians/#{@physician.id}"
+    else
+      flash[:message] = "Information supplied does not meet requirements. Please try again."
+      redirect "/patients/#{@patient.id}/edit"
+    end
+  end
+
+  delete "/patients/:id/delete" do
+    @patient = Patient.find_by(id: params[:id])
+    @physician = Physician.find_by(id: session[:id])
+
+    if !logged_in?
+      redirect "/"
+    elsif @patient.physician_id != @physician.id
+      flash[:message] = "You are not permitted to delete this patient."
+      redirect "/physicians/#{@physician.id}"
+    else
+      @patient.delete
+      redirect "/physicians/#{@physician.id}"
+    end
+  end
+
   get '/logout' do
       session.clear
       redirect "/"

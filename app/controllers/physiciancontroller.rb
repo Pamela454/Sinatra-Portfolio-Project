@@ -44,7 +44,7 @@ class PhysicianController < ApplicationController
       end
     end
 
-    get "/physicians/:id" do
+  get "/physicians/:id" do
     if logged_in?
       @physician = Physician.find_by(id: params[:id])
       @patients = @physician.patients
@@ -54,30 +54,16 @@ class PhysicianController < ApplicationController
     end
   end
 
-  get "/physicians/:id/edit" do
-    @physician = Physician.find_by(id: params[:id])
-
-    if !logged_in?
-      redirect "/physicians/login"
-    elsif current_user.id == @physician.physician_id
-      erb :"/physicians/edit_physician"
-    else
-      redirect "/physicians/show"
-    end
-  end
-
-post "/patients/:id" do
-  @patient = Patient.find_by(id: params[:id])
-
-  if params[:content] != ""
-    @patient.content = params[:content]
-    @patient.save
-    flash[:message] = "Welcome to your physician page. Please find your patients listed below:"
-    redirect "/patients/#{@patient.id}"
-  else
-    redirect "/patients/#{@patient.id}/edit"
-  end
-end
+#  get "/physicians/:id/edit" do
+#    @physician = Physician.find_by(id: params[:id])
+#
+#    if !logged_in?
+#      redirect "/physicians/login"
+#    elsif current_user.id == @physician.physician_id
+#    else
+#      redirect "/physicians/show"
+#    end
+#  end
 
   get '/logout' do
     session.clear
