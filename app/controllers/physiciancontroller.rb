@@ -30,14 +30,6 @@ class PhysicianController < ApplicationController
       erb :"physicians/show"
     else
       erb :"/physicians/login"
-#      session[:user_id] = @new_user.id
-#      if @new_user.save
-#        @patients = Patient.all.each do | p |
-#        #raise @patients.inspect
-#      @patients = Patients.all
-#      erb  :"/physicians/show"  #needs to be restful?
-#    else
-#      erb :"/physicians/login"
     end
   end
 
@@ -80,6 +72,7 @@ post "/patients/:id" do
   if params[:content] != ""
     @patient.content = params[:content]
     @patient.save
+    flash[:message] = "Welcome to your physician page. Please find your patients listed below:"
     redirect "/patients/#{@patient.id}"
   else
     redirect "/patients/#{@patient.id}/edit"
