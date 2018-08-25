@@ -2,7 +2,8 @@
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/emr`. To experiment with that code, run `bin/console` for an interactive prompt.
 
-TODO: Delete this and the text above, and describe your gem
+TODO: This gem allows physicians to manage patient lists and for patients to also view their
+medical history and active medical problems.
 
 ## Installation
 
@@ -22,7 +23,10 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+TODO: Sign in as either a physician or a patient. If you are a first time physician user, you can create an account by filling out the signup form which gives the required data. Once logged
+in as a physician, you can add, edit, or delete your patient list. You can also edit your patient's medical history and active problems. As a patient you will be granted access to your account by your physician through a username and password. This allows you to view your medical
+history and active medical problems. This application promotes patient involvement in their care
+and allows physicians to manage their patients remotely outside of their daily workflow. 
 
 ## Development
 
