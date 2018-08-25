@@ -10,6 +10,8 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
+    @physician = Physician.find_by(id: session[:id])
+    @patient = Patient.find_by(id: session[:id])
     erb :index
   end
 
