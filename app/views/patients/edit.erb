@@ -3,23 +3,19 @@
   <%= flash[:message] %>
 <% end %>
 
-<h2> Edit Patient </h2>
-
-Username: <%= @patient.username %></h2>
+<h2> Edit Patient <%= @patient.username %> </h2>
 <br>
 <br>
-Medical History: <%= @patient.medical_history %></h2>
+<h2> Medical History: <%= @patient.medical_history %></h2>
 <br>
 <br>
-Active Medical Problems: <%= @patient.active_problems %></h2>
+<h2> Active Medical Problems: <%= @patient.active_problems %></h2>
 <br>
 <br>
 <br>
 <br>
-<form method="post" action="/patients/<%= @patient.id %>">
+<form method="post" action="/patients/<%= @patient.id %>"
   <input type="hidden" name="_method" value="patch">
-  <label>Username:</label>
-  <input type="text" name="username" >
 <br>
 <br>
 <br>

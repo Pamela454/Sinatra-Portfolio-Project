@@ -5,7 +5,9 @@
 <% end %>
 
 <% @patients.each do |patient| %>
-  <p>---> <%= patient.username %> </p>
+  <p>---> <label>Username:</label> <%= patient.username %> </p>
+  <p>---> <label>Medical History: </label><%= patient.medical_history %> </p>
+  <p>---> <label>Active Problems: </label><%= patient.active_problems %> </p>
 
 <p>Click to edit or delete the patient below.</p>
 <br>

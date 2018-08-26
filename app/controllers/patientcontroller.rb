@@ -6,6 +6,7 @@ class PatientController < ApplicationController
 
   get '/patients/login' do
     if logged_in?
+      @patient = patient_current_user
       erb :"/patients/show"
     else
       flash[:message] = "Please login to your profile."
@@ -34,7 +35,12 @@ class PatientController < ApplicationController
 
   post '/patients/new' do
       params[:username] && params[:password] != nil
-      @patient = Patient.create(username: params[:username], password: params[:password])
+      @patient = Patient.create(username: params[:username], password: params[:password], physician_id: session[:id],
+        medical_history: params[:medical_history], active_problems: params[:active_problems])
+      @patient.save
+      binding.pry
+      @patients = physician_current_user.patients
+      raise @patients.inspect
       erb :"/physicians/show"
   end
 
@@ -56,16 +62,20 @@ class PatientController < ApplicationController
   end
 
   post "/patients/:id" do
-    @patient = Patient.find_by(id: params[:id])
+    @patient = Patient.find_by(params[:id])
     @physician = Physician.find_by(id: session[:id])
-    if params[:username] && params[:password] != nil
-      @patient.save
+    if params[:medical_history] != nil
+      @patient.update_attribute(:medical_history, params[:medical_history])
+    end
+    if params[:active_problems] != nil
+      @patient.update_attribute(:active_problems, params[:active_problems])
+    end
       flash[:message] = "Welcome to your physician page. Please find your patients listed below:"
       redirect "/physicians/#{@physician.id}"
-    else
-      flash[:message] = "Information supplied does not meet requirements. Please try again."
-      redirect "/patients/#{@patient.id}/edit"
-    end
+    #else
+    #  flash[:message] = "Information supplied does not meet requirements. Please try again."
+    #  redirect "/patients/#{@patient.id}/edit"
+    #end
   end
 
   delete "/patients/:id/delete" do

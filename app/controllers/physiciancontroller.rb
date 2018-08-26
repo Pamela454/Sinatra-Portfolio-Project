@@ -54,17 +54,6 @@ class PhysicianController < ApplicationController
     end
   end
 
-#  get "/physicians/:id/edit" do
-#    @physician = Physician.find_by(id: params[:id])
-#
-#    if !logged_in?
-#      redirect "/physicians/login"
-#    elsif current_user.id == @physician.physician_id
-#    else
-#      redirect "/physicians/show"
-#    end
-#  end
-
   get '/logout' do
     session.clear
     redirect "/"
