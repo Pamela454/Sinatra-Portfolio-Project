@@ -6,7 +6,7 @@ class PatientController < ApplicationController
 
     get '/patients/login' do
       if logged_in?
-        @patient = patient_current_user
+        @patient = Patient.find_by(id: session[:user_id])
         erb :"/patients/show"
       else
         flash[:message] = "Please login to your profile."
@@ -39,9 +39,7 @@ class PatientController < ApplicationController
        @patient = Patient.create(username: params[:username], password: params[:password], physician_id: session[:id],
          medical_history: params[:medical_history], active_problems: params[:active_problems])
        @patient.save
-       binding.pry
        @patients = physician_current_user.patients
-       raise @patients.inspect
        erb :"/physicians/show"
    end
 
