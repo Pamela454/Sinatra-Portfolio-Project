@@ -3,7 +3,8 @@
   <%= flash[:message] %>
 <% end %>
 
-<h2> Edit Patient <%= @patient.username %> </h2>
+
+<h2> Patient Username: <%= @patient.username %> </h2>
 <br>
 <br>
 <h2> Medical History: <%= @patient.medical_history %></h2>
@@ -14,8 +15,12 @@
 <br>
 <br>
 <br>
+<p>Please enter the Patient Username, Medical History, and Active Medical Problems as you would like
+  them to appear</p>
 <form method="post" action="/patients/<%= @patient.id %>"
   <input type="hidden" name="_method" value="patch">
+  <label>Username:</label>
+  <input type="text" name="username" >
 <br>
 <br>
 <br>

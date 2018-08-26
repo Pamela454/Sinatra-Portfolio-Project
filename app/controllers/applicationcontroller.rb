@@ -20,6 +20,7 @@ class ApplicationController < Sinatra::Base
 			session[:id] != nil
 		end
 
+
 		def patient_current_user
 		  if session[:id]
 			  Patient.find(session[:id])
@@ -33,5 +34,5 @@ class ApplicationController < Sinatra::Base
 		end
   end
 
-  
+
 end

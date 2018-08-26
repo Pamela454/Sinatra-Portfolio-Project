@@ -4,6 +4,6 @@ class Physician < ActiveRecord::Base
 
   validates :username, :presence => true, :uniqueness => true
   validates :npi, :presence => true, :uniqueness => true
-  validates :password, :presence => true, length: { minimum: 5 }
+  validates :password, :presence => true
 
 end
