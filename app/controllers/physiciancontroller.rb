@@ -27,11 +27,7 @@ class PhysicianController < ApplicationController
 
   get "/physicians/login" do
     @patients = Patient.all
-    if logged_in?
-      erb :"physicians/show"
-    else
       erb :"/physicians/login"
-    end
   end
 
 

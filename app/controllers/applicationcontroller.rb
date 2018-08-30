@@ -19,20 +19,6 @@ class ApplicationController < Sinatra::Base
 		def logged_in?
 			session[:id] != nil
 		end
-
-
-		def patient_current_user
-		  if session[:id]
-			  Patient.find(session[:id])
-			end
-		end
-
-    def physician_current_user
-		  if session[:id]
-			  Physician.find(session[:id])
-			end
-		end
   end
-
 
 end

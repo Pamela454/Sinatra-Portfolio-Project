@@ -19,7 +19,7 @@ class PatientController < ApplicationController
       session[:user_id] = @patient.id
       #raise @patient.inspect
         if @patient != nil
-            redirect '/patients/:id'
+            redirect "/patients/#{@patient.id}"
         else
             redirect '/patients/login'
         end
@@ -39,7 +39,8 @@ class PatientController < ApplicationController
        @patient = Patient.create(username: params[:username], password: params[:password], physician_id: session[:id],
          medical_history: params[:medical_history], active_problems: params[:active_problems])
        @patient.save
-       @patients = physician_current_user.patients
+       @physician = Physician.find_by(id: session[:id])
+       @patients = @physician.patients
        erb :"/physicians/show"
    end
 
