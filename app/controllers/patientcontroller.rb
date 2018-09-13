@@ -31,6 +31,7 @@ class PatientController < ApplicationController
       if physician_user?
         erb :"/patients/new"
       else
+        flash[:message] = "You do not have access to that feature."
         redirect '/'
       end
     end
@@ -62,6 +63,7 @@ class PatientController < ApplicationController
       @patient = Patient.find(params[:id])
       erb :"/patients/edit"
     else
+      flash[:message] = "You do not have access to that feature."
       redirect '/patients/login'
     end
   end
@@ -88,6 +90,7 @@ class PatientController < ApplicationController
     @physician = Physician.find_by(id: session[:id])
 
     if !logged_in?
+      flash[:message] = "You do not have access to that feature."
       redirect "/"
     elsif !physician_user?
       flash[:message] = "You are not permitted to delete this patient."

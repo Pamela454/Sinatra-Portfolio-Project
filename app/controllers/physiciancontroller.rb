@@ -6,6 +6,7 @@ class PhysicianController < ApplicationController
 
     get "/physicians/signup" do
       if patient_user?
+        flash[:message] = "You do not have access to that feature."
         redirect '/patients/:id'
       else
         @new_user = Physician.create(username: params[:username], npi: params[:npi], password: params[:password])
@@ -52,6 +53,7 @@ class PhysicianController < ApplicationController
        @patients = @physician.patients
        erb :"/physicians/show"
      else
+       flash[:message] = "You do not have access to that page."
        redirect "/physicians/login"
      end
    end
