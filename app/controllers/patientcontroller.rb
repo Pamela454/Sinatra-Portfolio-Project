@@ -5,18 +5,20 @@ class PatientController < ApplicationController
     use Rack::Flash
 
     get '/patients/login' do
-      if logged_in?
-        @patient = Patient.find_by(id: session[:user_id])
-        erb :"/patients/show"
-      else
-        flash[:message] = "Please login to your profile."
-        erb :"/patients/login"
-      end
+        if patient_user?
+          @patient = Patient.find_by(username: params[:username])
+          session[:user_id] = @patient.id
+          erb :"/patients/show"
+        else
+          flash[:message] = "Please login to your profile."
+          erb :"/patients/login"
+        end
     end
 
     post '/patients/login' do
       @patient = Patient.find_by(username: params[:username])
-      session[:user_id] = @patient.id
+      session[:id] = @patient.id
+      session[:username] = params[:username]
       #raise @patient.inspect
         if @patient != nil
             redirect "/patients/#{@patient.id}"
@@ -26,10 +28,10 @@ class PatientController < ApplicationController
     end
 
     get '/patients/new' do
-      if logged_in?
+      if physician_user?
         erb :"/patients/new"
       else
-        redirect '/login'
+        redirect '/'
       end
     end
 
@@ -46,18 +48,22 @@ class PatientController < ApplicationController
 
 
   get '/patients/:id' do  #creating a route variable. should always be after patients/new route
-    @patient = Patient.find_by(id: session[:user_id])
-      if session[:user_id] != nil
+      if patient_user? && session[:id] == params[:id].to_i
+        @patient = Patient.find_by(id: session[:id])
         flash[:message] = "Successful login."
         erb :"/patients/show"
       else
-        redirect '/patients/login'
+        erb :"/patients/login"
       end
   end
 
   get '/patients/:id/edit' do
-    @patient = Patient.find(params[:id])
-    erb :"/patients/edit"
+    if physician_user?
+      @patient = Patient.find(params[:id])
+      erb :"/patients/edit"
+    else
+      redirect '/patients/login'
+    end
   end
 
   post "/patients/:id" do
@@ -83,7 +89,7 @@ class PatientController < ApplicationController
 
     if !logged_in?
       redirect "/"
-    elsif !logged_in?
+    elsif !physician_user?
       flash[:message] = "You are not permitted to delete this patient."
       redirect "/physicians/#{@physician.id}"
     else

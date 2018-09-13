@@ -1,5 +1,5 @@
 class Patient < ActiveRecord::Base
-  has_secure_password
+  has_secure_password    #hash with salt using bcrypt gem. gives attribute of password_digest. contains authenticate method. 
   belongs_to :physician
 
   validates :username, :presence => true, :uniqueness => true

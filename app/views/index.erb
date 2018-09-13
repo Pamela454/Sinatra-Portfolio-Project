@@ -1,6 +1,11 @@
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
 <h2>Welcome to your electronic health record</h2>
 
 <nav>
+
   <% if logged_in? %>
 
     <a href="/physicians/<%= @physician.id %>"> Physician Profile Page </a>
@@ -19,9 +24,14 @@
     <a href="/physicians/login"> Physician Sign In </a>
     <br>
     <br>
-    <br>
     <a href="/patients/login"> Patient Sign In </a>
-
+    <br>
+    <br>
+    <br>
+    <p>New Physician? Sign Up Below:</p>
+    <br>
+    <a href="/physicians/signup"> Create Physician Profile </a>
+    <br>
   <%end %>
 
 </nav>

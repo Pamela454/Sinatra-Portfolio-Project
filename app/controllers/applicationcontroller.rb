@@ -5,7 +5,7 @@ class ApplicationController < Sinatra::Base
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
-    enable :sessions  #stores users ID
+    enable :sessions  #stores users ID, enables sessions
     set :session_secret, "physician_editor"
   end
 
@@ -20,5 +20,13 @@ class ApplicationController < Sinatra::Base
 			session[:id] != nil
 		end
   end
+
+   def physician_user?
+     Physician.find_by(username: session[:username])
+   end
+
+   def patient_user?
+     Patient.find_by(username: session[:username])
+   end
 
 end
