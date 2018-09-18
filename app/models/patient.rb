@@ -1,5 +1,5 @@
 class Patient < ActiveRecord::Base
-  has_secure_password    #hash with salt using bcrypt gem. gives attribute of password_digest. contains authenticate method. 
+  has_secure_password    #hash with salt using bcrypt gem. gives attribute of password_digest. contains authenticate method.
   belongs_to :physician
 
   validates :username, :presence => true, :uniqueness => true
@@ -7,5 +7,5 @@ class Patient < ActiveRecord::Base
   validates :medical_history, :presence => true
   validates :active_problems, :presence => true
 
-
+  #validate - rails guides - if/then statement?
 end

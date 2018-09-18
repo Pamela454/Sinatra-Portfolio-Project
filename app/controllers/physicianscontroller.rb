@@ -1,7 +1,7 @@
 require 'sinatra/base' #is this necessary?
 require 'rack-flash'
 
-class PhysicianController < ApplicationController
+class Physicians_Controller < ApplicationController
     use Rack::Flash
 
     get "/physicians/signup" do
@@ -36,7 +36,7 @@ class PhysicianController < ApplicationController
 
     post '/physicians/login' do
       @physician = Physician.find_by(username: params[:username])
-      session[:username] = params[:username]
+      session[:username] = params[:username] #should be after line 40
       if @physician && @physician.authenticate(params[:password]) #check to see if password matches stored password
          session[:id] = @physician.id  #session hash persists throughout session. Any controller can access.
          flash[:message] = "Successful login."

@@ -1,7 +1,7 @@
 require 'sinatra/base'
 require 'rack-flash'
 
-class PatientController < ApplicationController
+class Patients_Controller < ApplicationController
     use Rack::Flash
 
     get '/patients/login' do

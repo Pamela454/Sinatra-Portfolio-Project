@@ -21,11 +21,11 @@ class ApplicationController < Sinatra::Base
 		end
   end
 
-   def physician_user?
+   def physician_user
      Physician.find_by(username: session[:username])
    end
 
-   def patient_user?
+   def patient_user
      Patient.find_by(username: session[:username])
    end
 
