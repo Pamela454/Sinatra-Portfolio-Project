@@ -16,17 +16,9 @@ class ApplicationController < Sinatra::Base
   end
 
   helpers do
-		def logged_in?
-			session[:id] != nil
-		end
-  end
 
-   def physician_user
-     Physician.find_by(username: session[:username])
-   end
-
-   def patient_user
-     Patient.find_by(username: session[:username])
+   def current_user
+     session[:user_type]
    end
 
 end

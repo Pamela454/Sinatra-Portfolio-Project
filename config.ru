@@ -6,6 +6,6 @@ if ActiveRecord::Migrator.needs_migration?
 end
 #must explicitly mount controllers. can only run one controller.
 use Rack::MethodOverride #middleware that provides put, patch, and delete requests
-use PatientController
-use PhysicianController
+use PatientsController
+use PhysiciansController
 run ApplicationController

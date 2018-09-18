@@ -7,5 +7,10 @@ class Patient < ActiveRecord::Base
   validates :medical_history, :presence => true
   validates :active_problems, :presence => true
 
+class UserValidator < ActiveModel::EachValidator
+  def validate_each(record, attribute, value)
+    record.errors[attribute] << (options[:message] || "is not a patient")
+  end
+
   #validate - rails guides - if/then statement?
 end
