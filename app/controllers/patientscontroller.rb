@@ -1,13 +1,13 @@
 require 'sinatra/base'
 require 'rack-flash'
 
-class Patients_Controller < ApplicationController
+class PatientsController < ApplicationController
     use Rack::Flash
 
     get '/patients/login' do
-        if patient_user?
-          @patient = Patient.find_by(username: params[:username])
-          session[:user_id] = @patient.id
+        if session[:user_type] == "patient"
+          @patient = Patient.find_by(id: session[:id])
+          session[:id] = @patient.id
           erb :"/patients/show"
         else
           flash[:message] = "Please login to your profile."
@@ -17,18 +17,17 @@ class Patients_Controller < ApplicationController
 
     post '/patients/login' do
       @patient = Patient.find_by(username: params[:username])
-      session[:id] = @patient.id
-      session[:username] = params[:username]
-      #raise @patient.inspect
-        if @patient != nil
+      if @patient && @patient.authenticate(params[:password]) #check to see if password matches stored password
+            session[:id] = @patient.id
+            session[:user_type] = "patient"
             redirect "/patients/#{@patient.id}"
         else
             redirect '/patients/login'
         end
     end
 
-    get '/patients/new' do
-      if physician_user?
+    get '/patients/new' do #protect from non physicians editing
+      if session[:user_type] == "physician"
         erb :"/patients/new"
       else
         flash[:message] = "You do not have access to that feature."
@@ -49,7 +48,7 @@ class Patients_Controller < ApplicationController
 
 
   get '/patients/:id' do  #creating a route variable. should always be after patients/new route
-      if patient_user? && session[:id] == params[:id].to_i
+      if session[:user_type] == "patient" && session[:id] == params[:id].to_i#only viewed by patients
         @patient = Patient.find_by(id: session[:id])
         flash[:message] = "Successful login."
         erb :"/patients/show"
@@ -58,9 +57,9 @@ class Patients_Controller < ApplicationController
       end
   end
 
-  get '/patients/:id/edit' do
-    if physician_user?
-      @patient = Patient.find(params[:id])
+  get '/patients/:id/edit' do #can only be edited by a physician
+    if session[:user_type] == "physician"
+      @patient = Patient.find_by(params[:id])
       erb :"/patients/edit"
     else
       flash[:message] = "You do not have access to that feature."
@@ -89,10 +88,10 @@ class Patients_Controller < ApplicationController
     @patient = Patient.find_by(id: params[:id])
     @physician = Physician.find_by(id: session[:id])
 
-    if !logged_in?
+    if @current_user == nil
       flash[:message] = "You do not have access to that feature."
       redirect "/"
-    elsif !physician_user?
+    elsif @current_user == Patient.find_by(username: session[:username])
       flash[:message] = "You are not permitted to delete this patient."
       redirect "/physicians/#{@physician.id}"
     else
@@ -104,5 +103,5 @@ class Patients_Controller < ApplicationController
   get '/logout' do
       session.clear
       redirect "/"
+    end
   end
-end

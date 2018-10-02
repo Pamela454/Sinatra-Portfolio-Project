@@ -6,14 +6,14 @@
 
 <nav>
 
-  <% if physician_user? %>
+  <% if session[:username] == "physician" %>
     <br>
     <a href="/physicians/<%= @physician.id %>"> Physician Profile Page </a>
     <br>
     <br>
     <br>
     <a class="button" href="/logout">Logout</a>
-  <% elsif patient_user? %>
+  <% session[:username] == "patient" %>
     <br>
     <a href="/patients/<%= @patient.id %>"> Patient Profile Page </a>
     <br>

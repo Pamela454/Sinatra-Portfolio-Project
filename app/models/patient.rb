@@ -1,4 +1,5 @@
 class Patient < ActiveRecord::Base
+  validate :username_validator #symbol pointing to a method, won't save if there is an error 
   has_secure_password    #hash with salt using bcrypt gem. gives attribute of password_digest. contains authenticate method.
   belongs_to :physician
 
@@ -7,10 +8,10 @@ class Patient < ActiveRecord::Base
   validates :medical_history, :presence => true
   validates :active_problems, :presence => true
 
-class UserValidator < ActiveModel::EachValidator
-  def validate_each(record, attribute, value)
-    record.errors[attribute] << (options[:message] || "is not a patient")
+  def username_validator #adding single validator method
+    if Physician.username_taken?(self.username)  #shows error if evaluates to true
+      self.errors[:username] << "is already taken"
+    end
   end
 
-  #validate - rails guides - if/then statement?
 end

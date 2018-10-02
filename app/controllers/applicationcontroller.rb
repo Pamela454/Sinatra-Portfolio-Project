@@ -17,8 +17,14 @@ class ApplicationController < Sinatra::Base
 
   helpers do
 
-   def current_user
-     session[:user_type]
-   end
+    def current_user #ternary operator, create local variable to pass around 
+      @current_user ||= session[:user_type] == "patient" ? #current_user or session user == patient?
+        Patient.find_by(username: session[:username]) :
+        Physician.find_by(username: session[:username])
+    end
 
+    def logged_in?
+        !current_user.nil?
+    end
+  end
 end
