@@ -5,11 +5,11 @@ class PhysiciansController < ApplicationController
     use Rack::Flash
 
     get "/physicians/signup" do
-      if session[:user_type] == "patient"  #can I just write @current_user?
+      if session[:user_type] == "patient"
         flash[:message] = "You do not have access to that feature."
         redirect '/patients/:id'
       else
-        #@new_user = Physician.create(username: params[:username], npi: params[:npi], password: params[:password])
+        @new_user = Physician.create(username: params[:username], npi: params[:npi], password: params[:password])
         erb :"/physicians/create_physician"
       end
     end
@@ -20,10 +20,14 @@ class PhysiciansController < ApplicationController
      else
         @new_user = Physician.create(username: params[:username], npi: params[:npi], password: params[:password])
         #grab data from params hash and save as a new user
-        @new_user.save
-        session[:id] = @new_user.id
-        flash[:message] = "Successful creation of profile. Please log in."
-        redirect "/physicians/login"
+        if @new_user.save
+          session[:id] = @new_user.id
+          flash[:message] = "Successful creation of profile. Please log in."
+          redirect "/physicians/login"
+        else
+          flash[:message] = "Not valid profile data."
+          redirect "/physicians/login"
+        end
       end
     end
 

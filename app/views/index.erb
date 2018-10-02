@@ -6,14 +6,14 @@
 
 <nav>
 
-  <% if session[:username] == "physician" %>
+  <% if session[:user_type] == "physician" %>
     <br>
     <a href="/physicians/<%= @physician.id %>"> Physician Profile Page </a>
     <br>
     <br>
     <br>
     <a class="button" href="/logout">Logout</a>
-  <% session[:username] == "patient" %>
+  <% elsif session[:user_type] == "patient" %>
     <br>
     <a href="/patients/<%= @patient.id %>"> Patient Profile Page </a>
     <br>
@@ -35,6 +35,6 @@
     <br>
     <a href="/physicians/signup"> Create Physician Profile </a>
     <br>
-  <%end %>
+  <% end %>
 
 </nav>

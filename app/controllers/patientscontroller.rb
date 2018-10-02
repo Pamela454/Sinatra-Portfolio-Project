@@ -10,7 +10,6 @@ class PatientsController < ApplicationController
           session[:id] = @patient.id
           erb :"/patients/show"
         else
-          flash[:message] = "Please login to your profile."
           erb :"/patients/login"
         end
     end
@@ -21,9 +20,10 @@ class PatientsController < ApplicationController
             session[:id] = @patient.id
             session[:user_type] = "patient"
             redirect "/patients/#{@patient.id}"
-        else
+      else
+            flash[:message] = "Could not authenticate login."
             redirect '/patients/login'
-        end
+      end
     end
 
     get '/patients/new' do #protect from non physicians editing
@@ -37,13 +37,23 @@ class PatientsController < ApplicationController
 
 
     post '/patients/new' do
-       params[:username] && params[:password] != nil
-       @patient = Patient.create(username: params[:username], password: params[:password], physician_id: session[:id],
+      if params[:username] == nil && params[:password] == nil
+        flash[:message] = "Please enter both username and password to create a new patient."
+        redirect "/patients/new"
+      else
+        params[:username] && params[:password] != nil
+        @patient = Patient.create(username: params[:username], password: params[:password], physician_id: session[:id],
          medical_history: params[:medical_history], active_problems: params[:active_problems])
-       @patient.save
-       @physician = Physician.find_by(id: session[:id])
-       @patients = @physician.patients
-       erb :"/physicians/show"
+         if @patient.save
+           @physician = Physician.find_by(id: session[:id])
+           @patients = @physician.patients
+           flash[:message] = "Successfully added new patient."
+           erb :"/physicians/show"
+         else
+           flash[:message] = "Not valid profile data."
+           redirect "/patients/new"
+         end
+     end
    end
 
 
@@ -53,6 +63,7 @@ class PatientsController < ApplicationController
         flash[:message] = "Successful login."
         erb :"/patients/show"
       else
+        flash[:message] = "You do not have access to that feature."
         erb :"/patients/login"
       end
   end
@@ -67,7 +78,7 @@ class PatientsController < ApplicationController
     end
   end
 
-  post "/patients/:id" do
+  patch "/patients/:id" do
     @patient = Patient.find_by(username: params[:username])
     @physician = Physician.find_by(id: session[:id])
     if params[:medical_history] != ""
@@ -76,7 +87,7 @@ class PatientsController < ApplicationController
     if params[:active_problems] != ""
       @patient.update_attribute(:active_problems, params[:active_problems])
     end
-      flash[:message] = "Welcome to your physician page. Please find your patients listed below:"
+      flash[:message] = "Successfully edited patient profile."
       redirect "/physicians/#{@physician.id}"
     #else
     #  flash[:message] = "Information supplied does not meet requirements. Please try again."
