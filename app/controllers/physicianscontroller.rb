@@ -52,7 +52,7 @@ class PhysiciansController < ApplicationController
 
 
     get "/physicians/:id" do
-     if @current_user == Physician.find_by(username: session[:username]) && session[:id] == params[:id].to_i
+     if session[:user_type] == "physician" && session[:id] == params[:id].to_i
        @physician = Physician.find_by(id: params[:id])
        @patients = @physician.patients
        erb :"/physicians/show"
