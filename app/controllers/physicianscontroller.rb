@@ -22,7 +22,6 @@ class PhysiciansController < ApplicationController
         #grab data from params hash and save as a new user
         if @new_user.save
           session[:id] = @new_user.id
-          session[:username] = params[:username]
           flash[:message] = "Successful creation of profile. Please log in."
           redirect "/physicians/login"
         else
