@@ -5,7 +5,7 @@ class PhysiciansController < ApplicationController
     use Rack::Flash
 
     get "/physicians/signup" do
-      if session[:user_type] == "patient"
+      if self.current_user.class == Patient
         flash[:message] = "You do not have access to that feature."
         redirect '/patients/:id'
       else
@@ -22,6 +22,7 @@ class PhysiciansController < ApplicationController
         #grab data from params hash and save as a new user
         if @new_user.save
           session[:id] = @new_user.id
+          session[:username] = params[:username]
           flash[:message] = "Successful creation of profile. Please log in."
           redirect "/physicians/login"
         else
@@ -42,6 +43,7 @@ class PhysiciansController < ApplicationController
       if @physician && @physician.authenticate(params[:password]) #check to see if password matches stored password
          session[:id] = @physician.id
          session[:user_type] = "physician"
+         session[:username] = params[:username]
          #session[:id] = @physician.id  #session hash persists throughout session. Any controller can access.
          flash[:message] = "Successful login."
          redirect "/physicians/#{@physician.id}"
@@ -52,7 +54,7 @@ class PhysiciansController < ApplicationController
 
 
     get "/physicians/:id" do
-     if session[:user_type] == "physician" && session[:id] == params[:id].to_i
+     if self.current_user.class == Physician && session[:id] == params[:id].to_i
        @physician = Physician.find_by(id: params[:id])
        @patients = @physician.patients
        erb :"/physicians/show"

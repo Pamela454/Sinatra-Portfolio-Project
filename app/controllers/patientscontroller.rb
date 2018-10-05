@@ -5,7 +5,7 @@ class PatientsController < ApplicationController
     use Rack::Flash
 
     get '/patients/login' do
-        if session[:user_type] == "patient"
+        if self.current_user.class == Patient
           @patient = Patient.find_by(id: session[:id])
           session[:id] = @patient.id
           erb :"/patients/show"
@@ -17,6 +17,7 @@ class PatientsController < ApplicationController
     post '/patients/login' do
       @patient = Patient.find_by(username: params[:username])
       if @patient && @patient.authenticate(params[:password]) #check to see if password matches stored password
+            session[:username] = params[:username]
             session[:id] = @patient.id
             session[:user_type] = "patient"
             redirect "/patients/#{@patient.id}"
@@ -27,7 +28,7 @@ class PatientsController < ApplicationController
     end
 
     get '/patients/new' do #protect from non physicians editing
-      if session[:user_type] == "physician"
+      if self.current_user.class == "physician"
         erb :"/patients/new"
       else
         flash[:message] = "You do not have access to that feature."
@@ -58,7 +59,7 @@ class PatientsController < ApplicationController
 
 
   get '/patients/:id' do  #creating a route variable. should always be after patients/new route
-      if session[:user_type] == "patient" && session[:id] == params[:id].to_i#only viewed by patients
+      if self.current_user.class == Patient && session[:id] == params[:id].to_i#only viewed by patients
         @patient = Patient.find_by(id: session[:id])
         flash[:message] = "Successful login."
         erb :"/patients/show"
@@ -69,7 +70,7 @@ class PatientsController < ApplicationController
   end
 
   get '/patients/:id/edit' do #can only be edited by a physician
-    if session[:user_type] == "physician"
+    if self.current_user.class == Physician
       @patient = Patient.find_by(params[:id])
       erb :"/patients/edit"
     else
