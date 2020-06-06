@@ -1,5 +1,5 @@
 class Physician < ActiveRecord::Base
-  validate :username_validator #symbol pointing to a method, wont save if there is an error
+  #validate :username_validator #symbol pointing to a method, wont save if there is an error
   has_secure_password
   has_many :patients
 
