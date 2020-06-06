@@ -15,10 +15,10 @@ class Physician < ActiveRecord::Base
     @physicians.each { |physician| physician.username == username }
   end #returns true if username already taken
 
-  def username_validator
-    if Physician.username_taken?(self.username)  #shows error if evaluates to true
-      self.errors[:username] << "is already taken"
-    end
-  end
+  #def username_validator
+   # if Physician.username_taken?(self.username)  #shows error if evaluates to true
+    #  self.errors[:username] << "is already taken"
+    #end
+  #end
 
 end
