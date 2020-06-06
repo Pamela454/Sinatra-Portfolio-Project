@@ -1,23 +1,29 @@
-<p>Welcome, to your Physician Page</p>
+<p class= "font-weight-bold text-left">Welcome, to your Physician Page</p>
 
+<div class="text-left">
 <% if flash.has?(:message) %>
   <%= flash[:message] %>
 <% end %>
+</div>
 
 <% @patients.each do |patient| %>
-  <p>---> <label>Username:</label> <%= patient.username %> </p>
-  <p>---> <label>Medical History: </label><%= patient.medical_history %> </p>
-  <p>---> <label>Active Problems: </label><%= patient.active_problems %> </p>
+  <p class="text-left">---> <label class= font-weight-bold>Username:</label> <%= patient.username %> </p>
+  <p class="text-left">---> <label class= font-weight-bold>Medical History: </label> <%= patient.medical_history %> </p>
+  <p class="text-left">---> <label class= font-weight-bold>Active Problems: </label> <%= patient.active_problems %> </p>
 
-<p>Click to edit or delete the patient below.</p>
+<p class="text-left">Click to edit or delete the patient below.</p>
 <br>
+<div class="text-left">
 <a class="button" href="/patients/<%=patient.id%>/edit">Edit Patient</a>
 <br>
 <br>
 <form method="post" action="/patients/<%= patient.id %>/delete">
   <input id="hidden" type="hidden" name="_method" value="Delete">
   <input type="submit" value="Delete">
+</div>
 </form>
+<br>
+<br>
 <br>
 <%end%>
 <br>

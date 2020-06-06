@@ -16,6 +16,7 @@ class PhysiciansController < ApplicationController
 
     post "/physicians/signup" do
       if params[:username] == "" || params[:npi] == "" || params[:password] == ""
+        flash[:message] = "Please enter a username, password, and npi to create a new physician."
         redirect "/physicians/signup"
      else
         @new_user = Physician.create(username: params[:username], npi: params[:npi], password: params[:password])

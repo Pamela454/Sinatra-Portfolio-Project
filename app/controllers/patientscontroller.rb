@@ -28,9 +28,10 @@ class PatientsController < ApplicationController
     end
 
     get '/patients/new' do #protect from non physicians editing
-      if self.current_user.class == "physician"
+      if self.current_user.class.name == "Physician"
         erb :"/patients/new"
       else
+        binding.pry 
         flash[:message] = "You do not have access to that feature."
         redirect '/'
       end
