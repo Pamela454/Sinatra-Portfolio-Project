@@ -2,7 +2,7 @@
   <%= flash[:message] %>
 <% end %>
 
-<h2>Welcome to your electronic health record</h2>
+<!--<h2>Welcome to your electronic health record</h2>-->
 
 <nav>
 
@@ -22,7 +22,7 @@
     <a class="button" href="/logout">Logout</a>
 
   <% else %>
-  <p>Please sign in below:</p>
+  <p class="font-weight-bold">Please sign in below:</p>
     <br>
     <a href="/physicians/login"> Physician Sign In </a>
     <br>
@@ -31,7 +31,7 @@
     <br>
     <br>
     <br>
-    <p>New Physician? Sign Up Below:</p>
+    <p class="font-weight-bold">New Physician? Sign Up Below:</p>
     <br>
     <a href="/physicians/signup"> Create Physician Profile </a>
     <br>
