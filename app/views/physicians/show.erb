@@ -1,36 +1,45 @@
-<p class= "font-weight-bold text-left">Welcome, to your Physician Page</p>
-
-<div class="text-left">
-<% if flash.has?(:message) %>
-  <%= flash[:message] %>
-<% end %>
-</div>
-
-<% @patients.each do |patient| %>
-  <p class="text-left">---> <label class= font-weight-bold>Username:</label> <%= patient.username %> </p>
-  <p class="text-left">---> <label class= font-weight-bold>Medical History: </label> <%= patient.medical_history %> </p>
-  <p class="text-left">---> <label class= font-weight-bold>Active Problems: </label> <%= patient.active_problems %> </p>
-
-<p class="text-left">Click to edit or delete the patient below.</p>
-<br>
-<div class="text-left">
-<a class="button" href="/patients/<%=patient.id%>/edit">Edit Patient</a>
-<br>
-<br>
-<form method="post" action="/patients/<%= patient.id %>/delete">
-  <input id="hidden" type="hidden" name="_method" value="Delete">
-  <input type="submit" value="Delete">
-</div>
-</form>
-<br>
-<br>
-<br>
-<%end%>
-<br>
-<br>
-<a class="button" href="/patients/new">Add New Patient</a>
-<br>
-<br>
-<a class="button" href="/logout">Logout</a>
-<br>
-<br>
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <p class="font-weight-bold text-left">Welcome, to your Physician Page</p>
+        </div>
+        <div class="text-left">
+            <% if flash.has?(:message) %>
+            <%= flash[:message] %>
+            <% end %>
+        </div>
+        <div class="col-sm">
+            <% @patients.each do |patient| %>
+            <p class="text-left">---> <label class=font-weight-bold>Username:</label>
+                <%= patient.username %>
+            </p>
+            <p class="text-left">---> <label class=font-weight-bold>Medical History: </label>
+                <%= patient.medical_history %>
+            </p>
+            <p class="text-left">---> <label class=font-weight-bold>Active Problems: </label>
+                <%= patient.active_problems %>
+            </p>
+            <p class="text-left">Click to edit or delete the patient below.</p>
+            <br>
+            <div class="text-left">
+                <a class="button" href="/patients/<%=patient.id%>/edit">Edit Patient</a>
+                <br>
+                <br>
+                <form method="post" action="/patients/<%= patient.id %>/delete">
+                    <input id="hidden" type="hidden" name="_method" value="Delete">
+                    <input type="submit" value="Delete">
+            </div>
+            </form>
+            <br>
+            <br>
+            <br>
+            <%end%>
+            <br>
+            <br>
+        </div>
+        <a class="button" href="/patients/new">Add New Patient</a>
+        <br>
+        <br>
+        <a class="button" href="/logout">Logout</a>
+        <br>
+        <br>
