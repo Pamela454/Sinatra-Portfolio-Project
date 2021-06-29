@@ -23,7 +23,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Sign in as either a physician or a patient. If you are a first time physician user, you can create an account by filling out the signup form which gives the required data. Once logged
+TODO: Run using rackup config.ru. Sign in as either a physician or a patient. If you are a first time physician user, you can create an account by filling out the signup form which gives the required data. Once logged
 in as a physician, you can add, edit, or delete your patient list. You can also edit your patient's medical history and active problems. As a patient you will be granted access to your account by your physician through a username and password. This allows you to view your medical
 history and active medical problems. This application promotes patient involvement in their care
 and allows physicians to manage their patients remotely outside of their daily workflow. 
