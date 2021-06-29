@@ -1,43 +1,44 @@
-
 <% if flash.has?(:message) %>
-  <%= flash[:message] %>
+<%= flash[:message] %>
 <% end %>
-
-
-<p class="text-left"><label class= font-weight-bold> Patient Username: </label> <%= @patient.username %> </p>
+<p class="text-left"><label class=font-weight-bold> Patient Username: </label>
+    <%= @patient.username %>
+</p>
 <br>
-<p class="text-left"><label class= font-weight-bold> Medical History: </label> <%= @patient.medical_history %></p>
+<p class="text-left"><label class=font-weight-bold> Medical History: </label>
+    <%= @patient.medical_history %>
+</p>
 <br>
-<p class="text-left"><label class= font-weight-bold> Active Medical Problems: </label> <%= @patient.active_problems %></p>
+<p class="text-left"><label class=font-weight-bold> Active Medical Problems: </label>
+    <%= @patient.active_problems %>
+</p>
 <br>
 <br>
 <br>
 <p class="text-left">Please enter the Patient Username, Medical History, and Active Medical Problems as you would like
-  them to appear</p>
-  <div class="text-left">
-<form method="post" action="/patients/<%= @patient.id %>">
-  <input id="hidden" type="hidden" name="_method" value="PATCH">
-  <label class= font-weight-bold>Username:</label>
-  <input type="text" name="username" >
-<br>
-<br>
-<br>
-  <label class= font-weight-bold>Medical History:</label>
-  <input type="text" name="medical_history" >
-<br>
-<br>
-<br>
-  <label class= font-weight-bold>Active Medical Problems:</label>
-  <input type="text" name="active_problems" >
-<br>
-<br>
-<br>
+    them to appear</p>
+<div class="text-left">
+    <form method="post" action="/patients/<%= @patient.id %>">
+        <input id="hidden" type="hidden" name="_method" value="PATCH">
+        <label class=font-weight-bold>Username:</label>
+        <input type="text" name="username">
+        <br>
+        <br>
+        <br>
+        <label class=font-weight-bold>Medical History:</label>
+        <input type="text" name="medical_history">
+        <br>
+        <br>
+        <br>
+        <label class=font-weight-bold>Active Medical Problems:</label>
+        <input type="text" name="active_problems">
+        <br>
+        <br>
+        <br>
 </div>
-  <input type="submit" value="Submit Edits">
+<input type="submit" value="Submit Edits">
 <br>
 <br>
 <br>
-  <a class="button" href="/logout">Logout</a>
-
-
+<a class="button" href="/logout">Logout</a>
 </form>

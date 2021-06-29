@@ -1,16 +1,18 @@
 <form method="post" action="/physicians/signup">
-
-<label> Physician Username: <%= @new_user.username %> </label>
-<input type="text" name="username">
-<br>
-<br>
-<label> Physician Password: <%= @new_user.password %></label>
-<input type="text" name="password">
-<br>
-<br>
-<label> Physician NPI: <%= @new_user.npi %></label>
-<input type="text" name="npi">
-<br>
-<br>
-<input type="submit" value="Submit Profile">
+    <label> Physician Username:
+        <%= @new_user.username %> </label>
+    <input type="text" name="username">
+    <br>
+    <br>
+    <label> Physician Password:
+        <%= @new_user.password %></label>
+    <input type="text" name="password">
+    <br>
+    <br>
+    <label> Physician NPI:
+        <%= @new_user.npi %></label>
+    <input type="text" name="npi">
+    <br>
+    <br>
+    <input type="submit" value="Submit Profile">
 </form>
