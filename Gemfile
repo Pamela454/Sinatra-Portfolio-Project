@@ -13,6 +13,8 @@ gem 'shotgun'
 gem 'pry'
 gem 'bcrypt-ruby', '~> 3.1.2'
 gem "tux"
+gem 'sysrandom'
+
 
 group :test do
   gem 'rspec'

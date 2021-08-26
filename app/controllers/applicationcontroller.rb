@@ -5,8 +5,8 @@ class ApplicationController < Sinatra::Base
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
-    enable :sessions  #stores users ID, enables sessions
-    set :session_secret, "physician_editor"
+    enable :sessions  #stores users ID, enables sessions. keeps state during requests. 
+    set :session_secret, 
   end
 
   get "/" do
