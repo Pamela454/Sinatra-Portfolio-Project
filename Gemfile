@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 # Specify your gem's dependencies in emr.gemspec
 gem 'sinatra'
-gem 'activerecord', '4.2.7.1', :require => 'active_record'
+gem 'activerecord', '~> 5.0', '>= 5.0.0.1' 
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
 gem 'rack-flash3'
 gem 'rake'
