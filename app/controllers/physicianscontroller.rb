@@ -48,6 +48,7 @@ class PhysiciansController < ApplicationController
          flash[:message] = "Successful login."
          redirect "/physicians/#{@physician.id}"
        else
+         flash[:message] = "Incorrect login information"
          redirect '/physicians/login'
        end
      end
