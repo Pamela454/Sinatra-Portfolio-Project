@@ -14,7 +14,7 @@ gem 'pry'
 gem 'bcrypt-ruby', '~> 3.1.2'
 gem "tux"
 gem 'sysrandom'
-
+gem 'railties', '~> 5.0', '>= 5.0.0.1'
 
 group :test do
   gem 'rspec'
