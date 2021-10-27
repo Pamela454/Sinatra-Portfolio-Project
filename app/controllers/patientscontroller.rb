@@ -15,14 +15,13 @@ class PatientsController < ApplicationController
     end
 
     post '/patients/login' do
-      binding.pry 
       @patient = Patient.find_by(username: params[:username])
+      log_in 
       current_user
       if @patient && @patient.authenticate(params[:password]) #check to see if password matches stored password
             session[:username] = params[:username]
             session[:id] = @patient.id
             session[:user_type] = "patient"
-            binding.pry 
             redirect "/patients/#{@patient.id}"
       else
             flash[:message] = "Could not authenticate login."
@@ -64,7 +63,7 @@ class PatientsController < ApplicationController
   get '/patients/:id' do  #creating a route variable. should always be after patients/new route
     #current user is nil 
     binding.pry 
-      if self.current_user.class == Patient && session[:id] == params[:id].to_i#only viewed by patients
+      if session[:user_type] == Patient && session[:id] == params[:id].to_i#only viewed by patients
         @patient = Patient.find_by(id: session[:id])
         flash[:message] = "Successful login."
         erb :"/patients/show"
