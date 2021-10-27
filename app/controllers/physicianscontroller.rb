@@ -39,6 +39,7 @@ class PhysiciansController < ApplicationController
 
 
     post '/physicians/login' do
+      binding.pry 
       @physician = Physician.find_by(username: params[:username])
       if @physician && @physician.authenticate(params[:password]) #check to see if password matches stored password
          session[:id] = @physician.id
@@ -46,7 +47,8 @@ class PhysiciansController < ApplicationController
          session[:username] = params[:username]
          #session[:id] = @physician.id  #session hash persists throughout session. Any controller can access.
          flash[:message] = "Successful login."
-         redirect "/physicians/#{@physician.id}"
+         binding.pry 
+         redirect '/physicians/1'
        else
          flash[:message] = "Incorrect login information"
          redirect '/physicians/login'
