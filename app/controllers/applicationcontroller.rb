@@ -1,13 +1,13 @@
 require './config/environment'
 
 class ApplicationController < Sinatra::Base
-
+#routes defined in the controller 
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
     enable :sessions  #stores users ID, enables sessions. keeps state during requests. 
     set :session_secret, ENV.fetch('SESSION_SECRET') { SecureRandom.hex(64) }
-  end
+  end  #this isn't used anywhere else? 
 
   get "/" do
     @physician = Physician.find_by(id: session[:id])
