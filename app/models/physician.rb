@@ -4,7 +4,7 @@ class Physician < ActiveRecord::Base
   has_many :patients
 
   validates :username, :presence => true, :uniqueness => true
-  validates :npi, :presence => true, :uniqueness => true, length: 10
+  validates :npi, :presence => true, :uniqueness => true, :length => { is: 10 }
   validates :password, :presence => true
 
   def self.username_taken?(username) #method does not belong to an instance of the class
