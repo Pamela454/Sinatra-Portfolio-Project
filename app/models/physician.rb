@@ -13,6 +13,7 @@ class Physician < ActiveRecord::Base
 
     @patients.each { |patient| patient.username == username } &&
     @physicians.each { |physician| physician.username == username }
+    binding.pry 
   end #returns true if username already taken
 
   #def username_validator
