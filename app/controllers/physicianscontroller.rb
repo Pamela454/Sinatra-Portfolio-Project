@@ -59,6 +59,7 @@ class PhysiciansController < ApplicationController
 
     get "/physicians/:id" do
       binding.pry 
+      @physician = Physician.find_by(id: params[:id])
      if self.current_user.class == Physician && session[:id] == params[:id].to_i
        @physician = Physician.find_by(id: params[:id])
        @patients = @physician.patients
