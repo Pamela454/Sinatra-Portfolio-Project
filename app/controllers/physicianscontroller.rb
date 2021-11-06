@@ -50,7 +50,6 @@ class PhysiciansController < ApplicationController
          binding.pry 
          redirect "/physicians/#{@physician.id}"
        else
-        binding.pry 
          flash[:message] = "Incorrect login information"
          redirect '/physicians/login'
        end
@@ -58,8 +57,6 @@ class PhysiciansController < ApplicationController
 
 
     get "/physicians/:id" do
-      binding.pry 
-      @physician = Physician.find_by(id: params[:id])
      if self.current_user.class == Physician && session[:id] == params[:id].to_i
        @physician = Physician.find_by(id: params[:id])
        @patients = @physician.patients
