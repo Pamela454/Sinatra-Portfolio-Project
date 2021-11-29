@@ -1,4 +1,5 @@
 require './config/environment'
+require 'securerandom'
 
 class ApplicationController < Sinatra::Base
 #routes defined in the controller 
@@ -6,11 +7,13 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public' #directory where static files should be served from. 
     set :views, 'app/views' #specify directory where view templates are located 
     enable :sessions  #stores users ID, enables sessions. keeps state during requests. 
-    set :session_secret, 'super secret'
+    set :session_secret, ENV.fetch('SESSION_SECRET') { SecureRandom.hex(64) }
   end 
 
   get "/" do
     erb :index
+    binding.pry 
+    @session = session #session hash created. views have access to hash. 
   end
 
   helpers do

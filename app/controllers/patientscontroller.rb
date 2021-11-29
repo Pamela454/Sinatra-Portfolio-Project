@@ -16,7 +16,7 @@ class PatientsController < ApplicationController
 
     post '/patients/login' do
       @patient = Patient.find_by(username: params[:username])
-      log_in 
+      #log_in 
       current_user
       if @patient && @patient.authenticate(params[:password]) #check to see if password matches stored password
             session[:username] = params[:username]
@@ -62,7 +62,6 @@ class PatientsController < ApplicationController
 
   get '/patients/:id' do  #creating a route variable. should always be after patients/new route
     #current user is nil 
-    binding.pry 
       if session[:user_type] == Patient && session[:id] == params[:id].to_i#only viewed by patients
         @patient = Patient.find_by(id: session[:id])
         flash[:message] = "Successful login."
