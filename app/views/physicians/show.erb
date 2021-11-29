@@ -1,14 +1,16 @@
 <div class="container">
+     <p class="font-weight-bold text-center">Welcome, to your Physician Page</p>
+     <br>
+     <br>
     <div class="row">
         <div class="col-sm">
-            <p class="font-weight-bold text-left">Welcome, to your Physician Page</p>
         </div>
         <div class="text-left">
             <% if flash.has?(:message) %>
             <%= flash[:message] %>
             <% end %>
         </div>
-        <div class="col-sm">
+        <div class="col-4">
             <% @patients.each do |patient| %>
             <p class="text-left">---> <label class=font-weight-bold>Username:</label>
                 <%= patient.username %>
@@ -37,9 +39,11 @@
             <br>
             <br>
         </div>
+        <div class="col-4">
         <a class="button" href="/patients/new">Add New Patient</a>
         <br>
         <br>
         <a class="button" href="/logout">Logout</a>
+        </div>
         <br>
         <br>
