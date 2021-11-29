@@ -47,7 +47,6 @@ class PhysiciansController < ApplicationController
          current_user
          #session[:id] = @physician.id  #session hash persists throughout session. Any controller can access.
          flash[:message] = "Successful login."
-         binding.pry 
          redirect "/physicians/#{@physician.id}"
        else
          flash[:message] = "Incorrect login information"
@@ -57,6 +56,7 @@ class PhysiciansController < ApplicationController
 
 
     get "/physicians/:id" do
+      #second authentication check 
      if self.current_user.class == Physician && session[:id] == params[:id].to_i
        @physician = Physician.find_by(id: params[:id])
        @patients = @physician.patients
