@@ -62,7 +62,7 @@ class PatientsController < ApplicationController
 
   get '/patients/:id' do  #creating a route variable. should always be after patients/new route
     #current user is nil 
-      if session[:user_type] == Patient && session[:id] == params[:id].to_i#only viewed by patients
+      if session[:user_type] == "patient" && session[:id] == params[:id].to_i#only viewed by patients
         @patient = Patient.find_by(id: session[:id])
         flash[:message] = "Successful login."
         erb :"/patients/show"
@@ -101,12 +101,12 @@ class PatientsController < ApplicationController
 
   delete "/patients/:id/delete" do
     @patient = Patient.find_by(id: params[:id])
-    @physician = Physician.find_by(id: session[:id])
+    @physician = Physician.find_by(id: @session[:id])
 
     if @current_user == nil
       flash[:message] = "You do not have access to that feature."
       redirect "/"
-    elsif @current_user == Patient.find_by(username: session[:username])
+    elsif @current_user == Patient.find_by(username: @session[:username])
       flash[:message] = "You are not permitted to delete this patient."
       redirect "/physicians/#{@physician.id}"
     else
