@@ -1,7 +1,5 @@
 # Electronic Medical Record 
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/emr`. To experiment with that code, run `bin/console` for an interactive prompt.
-
 TODO: This gem allows physicians to manage patient lists and for patients to also view their
 medical history and active medical problems.
 
@@ -11,19 +9,7 @@ medical history and active medical problems.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'emr'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install emr
+Fork the program and copy the SSH link. Type git clone 'SSH link' in the desired folder. Run 'bundle install' to install associated gems. 
 
 ## Usage
 
@@ -34,8 +20,6 @@ in as a physician, you can add, edit, or delete your patient list. You can also 
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 ## Contributing
 
