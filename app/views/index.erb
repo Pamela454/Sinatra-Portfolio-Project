@@ -1,35 +1,37 @@
 <% if flash.has?(:message) %>
-<%= flash[:message] %>
+<%=f lash[:message] %>
 <% end %>
 <!--<h2>Welcome to your electronic health record</h2>-->
 <nav>
-    <% if session[:user_type] == "physician" %>
-    <br>
-    <a href="/physicians/<%= @physician.id %>"> Physician Profile Page </a>
-    <br>
-    <br>
-    <br>
-    <a class="button" href="/logout">Logout</a>
-    <% elsif session[:user_type] == "patient" %>
-    <br>
-    <a href="/patients/<%= @patient.id %>"> Patient Profile Page </a>
-    <br>
-    <br>
-    <br>
-    <a class="button" href="/logout">Logout</a>
-    <% else %>
-    <p class="font-weight-bold">Please sign in below:</p>
-    <br>
-    <a href="/physicians/login"> Physician Sign In </a>
-    <br>
-    <br>
-    <a href="/patients/login"> Patient Sign In </a>
-    <br>
-    <br>
-    <br>
-    <p class="font-weight-bold">New Physician? Sign Up Below:</p>
-    <br>
-    <a href="/physicians/signup"> Create Physician Profile </a>
-    <br>
-    <% end %>
+   <% binding.pry%>
+   <% if session[:user_type]=="physician" %>
+   <br>
+   <a href="/physicians/<%= @physician.id %>"> Physician Profile Page </a>
+   <br>
+   <br>
+   <br>
+   <a class="button" href="/logout">Logout</a>
+   <% elsif session[:user_type]=="patient" %>
+   <br>
+   <a href="/patients/<%= @patient.id %>"> Patient Profile Page </a>
+   <br>
+   <br>
+   <br>
+   <a class="button" href="/logout">Logout</a>
+   <% else %>
+   <p class="font-weight-bold">Please sign in below:</p>
+   <br>
+   <a href="/physicians/login"> Physician Sign In </a>
+   <br>
+   <br>
+   <a href="/patients/login"> Patient Sign In </a>
+   <br>
+   <br>
+   <br>
+   <p class="font-weight-bold">New Physician? Sign Up Below:</p>
+   <br>
+   <a href="/physicians/signup"> Create Physician Profile </a>
+   <br>
+   <% end %>
 </nav>
+
