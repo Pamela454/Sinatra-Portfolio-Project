@@ -1,27 +1,27 @@
 <% if flash.has?(:message) %>
-<%= flash[:message] %>
-<% end %>
-<h2> Create Patient </h2>
-<form method="post" action="/patients/new">
-    <label>Username:</label>
-    <input type="text" name="username">
-    <br>
-    <br>
-    <br>
-    <label>Password:</label>
-    <input type="text" name="password">
-    <br>
-    <br>
-    <br>
-    <label>Medical History:</label>
-    <input type="text" name="medical_history">
-    <br>
-    <br>
-    <br>
-    <label>Active Medical Problems:</label>
-    <input type="text" name="active_problems">
-    <br>
-    <br>
-    <br>
-    <input type="submit" value="Submit">
-</form>
+    <%=f lash[:message] %>
+        <% end %>
+            <h2> Create Patient </h2>
+            <form method="post" action="/patients/new">
+                <label>Username:</label>
+                <input type="text" name="username">
+                <br>
+                <br>
+                <br>
+                <label>Password:</label>
+                <input type="text" name="password">
+                <br>
+                <br>
+                <br>
+                <label>Medical History:</label>
+                <input type="text" name="medical_history">
+                <br>
+                <br>
+                <br>
+                <label>Active Medical Problems:</label>
+                <input type="text" name="active_problems">
+                <br>
+                <br>
+                <br>
+                <input type="submit" value="Submit">
+            </form>

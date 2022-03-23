@@ -17,9 +17,9 @@ class Physician < ActiveRecord::Base
   end #returns true if username already taken
 
   #def username_validator
-   # if Physician.username_taken?(self.username)  #shows error if evaluates to true
-    #  self.errors[:username] << "is already taken"
-    #end
+  # if Physician.username_taken?(self.username)  #shows error if evaluates to true
+  #  self.errors[:username] << "is already taken"
+  #end
   #end
 
 end

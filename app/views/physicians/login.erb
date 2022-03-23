@@ -1,23 +1,25 @@
 <% if flash.has?(:message) %>
-<%= flash[:message] %>
-<% end %>
-<h2> Login </h2>
-<p> Please Login to Your Physician Page </p>
-<form method="post" action="/physicians/login">
-    <label>Username</label><br>
-    <input type="text" name="username">
-    <br>
-    <br>
-    <label>Password</label><br>
-    <input type="text" name="password">
-    <br>
-    <br>
-    <input type="submit" id="submit" value="Login">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <a class="button" href="/logout">Return to Main Menu</a>
-</form>
+    <%=f lash[:message] %>
+        <% end %>
+            <h2> Login </h2>
+            <p> Please Login to Your Physician Page </p>
+            <form method="post" action="/physicians/login">
+                <label>Username</label>
+                <br>
+                <input type="text" name="username">
+                <br>
+                <br>
+                <label>Password</label>
+                <br>
+                <input type="text" name="password">
+                <br>
+                <br>
+                <input type="submit" id="submit" value="Login">
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <a class="button" href="/logout">Return to Main Menu</a>
+            </form>
