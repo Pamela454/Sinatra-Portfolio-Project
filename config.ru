@@ -1,5 +1,7 @@
 #execution point of any rack application
-require './config/environment'  #this will need to be updated
+ENV['SINATRA_ENV'] ||= "development"
+
+require './config/environment' 
 require 'pry'
 
 if ActiveRecord::Base.connection.migration_context.needs_migration?
