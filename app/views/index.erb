@@ -1,9 +1,9 @@
+<%binding.pry%> 
 <% if flash.has?(:message) %>
-<%=f lash[:message] %>
+<%=flash[:message] %>
 <% end %>
 <!--<h2>Welcome to your electronic health record</h2>-->
 <nav>
-   <% binding.pry%>
    <% if session[:user_type]=="physician" %>
    <br>
    <a href="/physicians/<%= @physician.id %>"> Physician Profile Page </a>
