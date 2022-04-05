@@ -11,7 +11,6 @@ class ApplicationController < Sinatra::Base
   end 
 
   get "/" do
-    binding.pry 
     @session = session #session hash created. views have access to hash. 
     erb :index
   end
