@@ -10,6 +10,7 @@ class PhysiciansController < ApplicationController
       redirect '/patients/:id'
     else
       @new_user = Physician.create(username: params[:username], npi: params[:npi], password: params[:password])
+            binding.pry 
       erb :"/physicians/create_physician"
     end
   end
