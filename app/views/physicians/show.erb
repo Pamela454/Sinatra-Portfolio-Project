@@ -6,22 +6,22 @@
 <div class="col-sm"></div>
 <div class="text-left">
    <% if flash.has?(:message) %>
-   <%=f lash[:message] %>
+   <%=flash[:message] %>
    <% end %>
 </div>
 <div class="col-4">
    <% @patients.each do |patient| %>
    <p class="text-left">--->
       <label class=font-weight-bold>Username:</label>
-      <%=p atient.username %>
+      <%=patient.username %>
    </p>
    <p class="text-left">--->
       <label class=font-weight-bold>Medical History: </label>
-      <%=p atient.medical_history %>
+      <%=patient.medical_history %>
    </p>
    <p class="text-left">--->
       <label class=font-weight-bold>Active Problems: </label>
-      <%=p atient.active_problems %>
+      <%=patient.active_problems %>
    </p>
    <p class="text-left">Click to edit or delete the patient below.</p>
    <br>

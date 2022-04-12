@@ -1,19 +1,19 @@
 <% if flash.has?(:message) %>
-    <%=f lash[:message] %>
+    <%=flash[:message] %>
         <% end %>
             <p class="text-left">
                 <label class=font-weight-bold> Patient Username: </label>
-                <%=@ patient.username %>
+                <%=@patient.username %>
             </p>
             <br>
             <p class="text-left">
                 <label class=font-weight-bold> Medical History: </label>
-                <%=@ patient.medical_history %>
+                <%=@patient.medical_history %>
             </p>
             <br>
             <p class="text-left">
                 <label class=font-weight-bold> Active Medical Problems: </label>
-                <%=@ patient.active_problems %>
+                <%=@patient.active_problems %>
             </p>
             <br>
             <br>
