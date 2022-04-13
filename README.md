@@ -1,9 +1,9 @@
-# Electronic Medical Record 
+# E-Health Records  
 
 TODO: This gem allows physicians to manage patient lists and for patients to also view their medical history and active medical problems.
 
 ## Prerequisites
-  Requires Ruby version 2.5.6 or later
+  Requires Ruby version 2.7.0 or later
 
 
 ## Installation
@@ -13,7 +13,7 @@ Fork the program and copy the SSH link. Type git clone 'SSH link' in the desired
 ## Usage
 
 TODO: 
-To use the application, install and then run 'bundle exec shotgun' in the terminal. If you are a physician and would like to create a new account, click the link "Create Physician Profile". Sign in as either a physician or a patient. If you are a first time physician user, you can create an account by filling out the signup form which gives the required data. Once logged in as a physician, you can add, edit, or delete your patient list. You can also edit your patient's medical history and active problems. As a patient you will be granted access to your account by your physician through a username and password. This allows you to view your medical history and active medical problems. This application promotes patient involvement in their care and allows physicians to manage their patients remotely outside of their daily workflow. 
+To use the application, install and then run 'bundle exec shotgun' in the terminal. If you are a physician user and would like to create a new account, click the link "Create Physician Profile". Sign in as either a physician or a patient. If you are a first time physician user, you can create an account by filling out the signup form which gives the required data. Once logged in as a physician, you can add, edit, or delete your patient list. You can also edit your patient's medical history and active problems. As a patient you will be granted access to your account by your physician through a username and password. This allows you to view your medical history and active medical problems. This application promotes patient involvement in their care and allows physicians to manage their patients remotely outside of their daily workflow. 
 
 ## Development
 
