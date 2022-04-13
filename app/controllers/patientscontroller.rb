@@ -16,7 +16,6 @@ class PatientsController < ApplicationController
 
   post '/patients/login' do
     @patient = Patient.find_by(username: params[:username])
-    #log_in 
     current_user
     if @patient && @patient.authenticate(params[:password]) #check to see if password matches stored password
       session[:username] = params[:username]
@@ -60,8 +59,7 @@ class PatientsController < ApplicationController
   end
 
 
-  get '/patients/:id' do  #creating a route variable. should always be after patients/new route
-    #current user is nil 
+  get '/patients/:id' do  
     if session[:user_type] == "patient" && session[:id] == params[:id].to_i#only viewed by patients
       @patient = Patient.find_by(id: session[:id])
       flash[:message] = "Successful login."
@@ -72,7 +70,7 @@ class PatientsController < ApplicationController
     end
   end
 
-  get '/patients/:id/edit' do #can only be edited by a physician
+  get '/patients/:id/edit' do 
     if self.current_user.class == Physician
       @patient = Patient.find_by(params[:id])
       erb :"/patients/edit"
@@ -93,26 +91,20 @@ class PatientsController < ApplicationController
     end
     flash[:message] = "Successfully edited patient profile."
     redirect "/physicians/#{@physician.id}"
-    #else
-    #  flash[:message] = "Information supplied does not meet requirements. Please try again."
-    #  redirect "/patients/#{@patient.id}/edit"
-    #end
   end
 
   delete "/patients/:id/delete" do
-    binding.pry
-    @patient = Patient.find_by(id: params[:id])
-    @physician = Physician.find_by(id: params[:id])
-
+    current_user
     if @current_user == nil
       flash[:message] = "You do not have access to that feature."
       redirect "/"
-      binding.pry 
-    elsif @current_user == Patient.find_by(username: @session[:username])
+    elsif self.current_user.class == Patient
+      Patient.find_by(username: session[:username])
       flash[:message] = "You are not permitted to delete this patient."
       redirect "/physicians/#{@physician.id}"
-    else
-      binding.pry 
+    elsif self.current_user.class == Physician
+      @physician = Physician.find_by(username: session[:username])
+      @patient = Patient.find_by(id: params[:id])
       @patient.delete
       redirect "/physicians/#{@physician.id}"
     end

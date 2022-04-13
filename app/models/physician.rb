@@ -1,5 +1,4 @@
 class Physician < ActiveRecord::Base
-  #validate :username_validator #symbol pointing to a method, wont save if there is an error
   has_secure_password
   has_many :patients
 
@@ -13,13 +12,5 @@ class Physician < ActiveRecord::Base
 
     @patients.each { |patient| patient.username == username } &&
     @physicians.each { |physician| physician.username == username }
-    binding.pry 
-  end #returns true if username already taken
-
-  #def username_validator
-  # if Physician.username_taken?(self.username)  #shows error if evaluates to true
-  #  self.errors[:username] << "is already taken"
-  #end
-  #end
-
+  end 
 end
