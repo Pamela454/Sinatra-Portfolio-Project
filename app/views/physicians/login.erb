@@ -1,9 +1,9 @@
 <% if flash.has?(:message) %>
     <%=flash[:message] %>
         <% end %>
-            <h2> Login </h2>
+          <h2> Login </h2>
             <p> Please Login to Your Physician Page </p>
-            <form method="post" action="/physicians/login">
+              <form method="post" action="/physicians/login">
                 <label>Username</label>
                 <br>
                 <input type="text" name="username">
@@ -22,4 +22,4 @@
                 <br>
                 <br>
                 <a class="button" href="/logout">Return to Main Menu</a>
-            </form>
+              </form>

@@ -17,7 +17,7 @@ class PatientsController < ApplicationController
   post '/patients/login' do
     @patient = Patient.find_by(username: params[:username])
     current_user
-    if @patient && @patient.authenticate(params[:password]) #check to see if password matches stored password
+    if @patient && @patient.authenticate(params[:password]) 
       session[:username] = params[:username]
       session[:id] = @patient.id
       session[:user_type] = "patient"
@@ -28,7 +28,7 @@ class PatientsController < ApplicationController
     end
   end
 
-  get '/patients/new' do #protect from non physicians editing
+  get '/patients/new' do 
     if self.current_user.class.name == "Physician"
       erb :"/patients/new"
     else
@@ -36,7 +36,6 @@ class PatientsController < ApplicationController
       redirect '/'
     end
   end
-
 
   post '/patients/new' do
     if params[:username] == nil && params[:password] == nil
@@ -58,9 +57,8 @@ class PatientsController < ApplicationController
     end
   end
 
-
   get '/patients/:id' do  
-    if session[:user_type] == "patient" && session[:id] == params[:id].to_i#only viewed by patients
+    if session[:user_type] == "patient" && session[:id] == params[:id].to_i
       @patient = Patient.find_by(id: session[:id])
       flash[:message] = "Successful login."
       erb :"/patients/show"

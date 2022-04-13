@@ -6,7 +6,7 @@ class Physician < ActiveRecord::Base
   validates :npi, :presence => true, :uniqueness => true, :length => { is: 10 }
   validates :password, :presence => true
 
-  def self.username_taken?(username) #method does not belong to an instance of the class
+  def self.username_taken?(username) 
     @patients = Patient.all
     @physicians = Physician.all
 
