@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-
+ruby "2.7.0"
 # Specify your gem's dependencies in emr.gemspec
 gem 'sinatra'
 gem 'activerecord', '~> 5.0', '>= 5.0.0.1' 
@@ -11,7 +11,7 @@ gem 'sqlite3'
 gem 'thin'
 gem 'shotgun'
 gem 'pry'
-gem 'bcrypt-ruby', '~> 3.1.2'
+gem 'bcrypt', '~> 3.1.2'
 gem "tux"
 gem 'sysrandom'
 gem 'dotenv'
