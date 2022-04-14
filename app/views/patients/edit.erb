@@ -24,18 +24,21 @@
             <div class="text-left">
               <form method="post" action="/patients/<%= @patient.id %>">
                 <input id="hidden" type="hidden" name="_method" value="PATCH">
-                <label class=font-weight-bold>Username:</label>
-                <input id="username" name="username">                
+                <label class=font-weight-bold>Username:
+                <input id="username" name="username">   
+                </label>             
                 <br>
                 <br>
                 <br>
-                <label class=font-weight-bold>Medical History:</label>
+                <label class=font-weight-bold>Medical History:
                 <input id="medical_history" name="medical_history">
+                </label>
                 <br>
                 <br>
                 <br>
-                <label class=font-weight-bold>Active Medical Problems:</label>
+                <label class=font-weight-bold>Active Medical Problems:
                 <input id="active_problems" name="active_problems">
+                </label>
                 <br>
                 <br>
                 <br>
