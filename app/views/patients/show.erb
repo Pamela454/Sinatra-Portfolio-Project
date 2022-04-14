@@ -1,6 +1,8 @@
 <% if flash.has?(:message) %>
   <%= flash[:message] %>
     <% end %>
+    <div class="col-5-center">
+      <div class="text-center">
       <br>
       <br>
       <br>
@@ -15,4 +17,6 @@
     </h2>
         <h2> Active Problems:
       <%= @patient.active_problems %>
-    </h2> </p> <a class="button" href="/logout">Logout</a>
+      </div>
+    </div>
+     </h2> </p> <a class="button" href="/logout">Logout</a>
