@@ -2,12 +2,14 @@
     <%=flash[:message] %>
         <% end %>
             <p class="text-left">
-              <label class=font-weight-bold> Patient Username: </label>
+              <label class=font-weight-bold> Patient Username: 
+              </label>
               <%=@patient.username %>
             </p>
             <br>
             <p class="text-left">
-              <label class=font-weight-bold> Medical History: </label>
+              <label class=font-weight-bold> Medical History: 
+              </label>
               <%=@patient.medical_history %>
             </p>
             <br>
@@ -23,17 +25,17 @@
               <form method="post" action="/patients/<%= @patient.id %>">
                 <input id="hidden" type="hidden" name="_method" value="PATCH">
                 <label class=font-weight-bold>Username:</label>
-                <input type="text" name="username">
+                <input id="username" name="username">                
                 <br>
                 <br>
                 <br>
                 <label class=font-weight-bold>Medical History:</label>
-                <input type="text" name="medical_history">
+                <input id="medical_history" name="medical_history">
                 <br>
                 <br>
                 <br>
                 <label class=font-weight-bold>Active Medical Problems:</label>
-                <input type="text" name="active_problems">
+                <input id="active_problems" name="active_problems">
                 <br>
                 <br>
                 <br>

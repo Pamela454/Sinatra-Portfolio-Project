@@ -7,17 +7,19 @@
             <p>Patient Sign In</p>
             <p>Please Login to Your Profile</p>
               <form method="post" action="/patients/login">
-                <label>Username</label>
-                <br>
-                <input type="text" name="username">
-                <br>
-                <br>
-                <label>Password</label>
-                <br>
-                <input type="text" name="password">
+                <label>Username
+                  <input id="username" name="username">
+                </label>
                 <br>
                 <br>
-                <input type="submit" id="submit" value="Login">
+                <br>
+                <label>Password
+                  <input id="password" name="password">
+                </label>
+                <br>
+                <br>
+                <br>
+                  <input type="submit" id="submit" value="Login">
                 <br>
                 <br>
                 <a class="button" href="/logout">Return to Main Menu</a>
