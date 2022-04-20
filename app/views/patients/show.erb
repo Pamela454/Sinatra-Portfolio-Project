@@ -1,12 +1,12 @@
+<div class="header">
 <% if flash.has?(:message) %>
   <h3><%= flash[:message] %></h3>
     <% end %>
-    <div class="col-5-center">
-      <div class="text-center">
+</div>
+  <section>
+    <div class="text-center">
       <br>
       <br>
-      <br>
-      <p>
         <h3> Name:
       <%= @patient.username %>
     </h3>
@@ -18,6 +18,10 @@
         <h3> Active Problems:
       <%= @patient.active_problems %>
       </div>
-    </div>
+  </section>
        </h3> 
-    </p> <a class="button" href="/logout">Logout</a>
+<footer class="page-footer font-small blue">
+  <br>
+  <a class="button" href="/logout">Logout</a>
+  <br>
+</footer>
