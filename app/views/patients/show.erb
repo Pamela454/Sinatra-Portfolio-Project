@@ -3,6 +3,7 @@
   <h3><%= flash[:message] %></h3>
     <% end %>
 </div>
+
   <section>
     <div class="text-center">
       <br>
@@ -14,12 +15,15 @@
         <br>
         <h3> Medical History:
       <%= @patient.medical_history %>
-    </h3>
+        </h3>
+        <br>
+        <br>
         <h3> Active Problems:
       <%= @patient.active_problems %>
-      </div>
-  </section>
        </h3> 
+    </div>
+  </section>
+
 <footer class="page-footer font-small blue">
   <br>
   <a class="button" href="/logout">Logout</a>
