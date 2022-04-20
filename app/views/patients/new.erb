@@ -2,6 +2,7 @@
     <%=flash[:message] %>
         <% end %>
           <h2> Create Patient </h2>
+          <br>
             <form method="post" action="/patients/new">
               <label>Username:
               <input id="username" name="username">  
@@ -28,4 +29,7 @@
               <br>
               <br>
               <input type="submit" value="Submit">
+              <br>
+              <br>
+              <a class="button" href="/logout">Return to Main Menu</a>
             </form>
