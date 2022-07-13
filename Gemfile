@@ -2,7 +2,7 @@ source "https://rubygems.org"
 ruby "2.7.0"
 # Specify your gem's dependencies in emr.gemspec
 gem 'sinatra'
-gem 'activerecord', '~> 5.0', '>= 5.0.0.1' 
+gem 'activerecord', '~> 7.0' 
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
 gem 'rack-flash3'
 gem 'rake'
@@ -15,7 +15,7 @@ gem 'bcrypt', '~> 3.1.2'
 gem "tux"
 gem 'sysrandom'
 gem 'dotenv'
-gem 'railties', '~> 5.0', '>= 5.0.0.1'
+gem 'railties', '~> 7.0'
 
 group :test do
   gem 'rspec'
