@@ -64,7 +64,7 @@ class PhysiciansController < ApplicationController
     end
   end
 
-  get '/logout' do
+  post "/physicians/logout" do
     session.clear
     redirect "/"
   end
