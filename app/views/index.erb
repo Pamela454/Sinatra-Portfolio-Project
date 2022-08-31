@@ -1,8 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+   <! –– linking to bootstrap files -->
+   <style>
+   body {
+      background-image: url('/img/surgery-1807541_1920 2.jpg');
+      }
+   a {
+      font-family: 'Roboto', sans-serif;
+      color: #000000;
+   }
+   p {
+      color: #000000;
+      font-family: 'Roboto', sans-serif;
+   }
+   .container {
+      padding-top: 100px;
+   }
+   .form-box {
+	background-color: rgba(0, 0, 0, 0.5);
+	margin: auto auto;
+	padding: 40px;
+	border-radius: 5px;
+	box-shadow: 0 0 10px #000;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 500px;
+	height: 430px;
+}
+   </style>
+<div class="container">
+<div class="form-box">
+<div class="col-sm">
 <% if flash.has?(:message) %>
 <%=flash[:message] %>
 <% end %>
-<nav>
    <% if session[:user_type]=="physician" %>
    <br>
    <a href="/physicians/<%= @physician.id %>"> Physician Profile Page </a>
@@ -25,14 +61,8 @@
    <br>
    <a href="/patients/login"> Patient Sign In </a>
    <br>
-   <br>
-   <br>
-   <p class="font-weight-bold">New Physician? Sign Up Below:</p>
-   <br>
-   <a href="/physicians/signup"> Create Physician Profile </a>
-   <br>
-   <br>
-   <br>
  <% end %>
-</nav>
+</div>
+</div>
+</div>
 
