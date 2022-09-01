@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-   <! –– linking to bootstrap files -->
    <style>
    body {
       background-image: url('/img/surgery-1807541_1920 2.jpg');
+      background-repeat: no-repeat;
       }
    a {
       font-family: 'Roboto', sans-serif;
@@ -36,8 +36,10 @@ h1 {
    color: #F8F8FF;
 }
    </style>
+<div class="container">
 <div class="form-box">
 <div class="col-sm">
+<div class="header-text text-center ">   
 <% if flash.has?(:message) %>
 <%=flash[:message] %>
 <% end %>
@@ -67,4 +69,8 @@ h1 {
  <% end %>
 </div>
 </div>
+</div>
+</div>   
+
+
 
