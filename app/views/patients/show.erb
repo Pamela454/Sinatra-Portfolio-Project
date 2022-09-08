@@ -1,3 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <style>
+   body {
+        background-image: url('/img/photo-1528460033278-a6ba57020470.avif');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top;
+        background-attachment: fixed;
+      }
+   a {
+      font-family: 'Roboto', sans-serif;
+      color: black;
+      text-shadow: none;
+   }
+   p {
+      font-family: 'Roboto', sans-serif;
+   }
+   .col-sm {
+      padding-top: 100px;
+   }
+   h1 {
+      color: #F8F8FF;
+   }
+   .text-center {
+   }
+   .col-md {
+
+   }
+   </style>
+<div class="container">
+<div class="form-box">
+<div class="col-sm">
+<div class="header-text text-center">   
 <div class="header">
 <% if flash.has?(:message) %>
   <h3><%= flash[:message] %></h3>
@@ -29,3 +64,6 @@
   <a class="button" href="/logout">Logout</a>
   <br>
 </footer>
+</div>
+</div>
+</div> 
