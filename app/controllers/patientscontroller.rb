@@ -4,6 +4,34 @@ require 'rack-flash'
 class PatientsController < ApplicationController
   use Rack::Flash
 
+
+  get "/patients/signup" do
+    if self.current_user.class == Patient
+      flash[:message] = "You do not have access to that feature."
+      redirect '/patients/signup'
+    else
+      @new_user = Patient.create(username: params[:username], password: params[:password])
+      erb :"/patients/create_patient"
+    end
+  end
+
+  post "/patients/signup" do
+    if params[:username] == "" || params[:password] == ""
+      flash[:message] = "Please enter a username and password to create a new patient."
+      redirect "/patients/signup"
+    else
+      @new_user = Patient.create(username: params[:username], password: params[:password])
+      if @new_user.save
+        session[:id] = @new_user.id
+        flash[:message] = "Successful creation of profile. Please log in."
+        redirect "/patients/login"
+      else
+        flash[:message] = "Not valid profile data."
+        redirect "/patients/login"
+      end
+    end
+  end
+
   get '/patients/login' do
     if self.current_user.class == Patient
       @patient = Patient.find_by(id: session[:id])
