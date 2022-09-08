@@ -1,3 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <style>
+   body {
+        background-image: url('/img/photo-1528460033278-a6ba57020470.avif');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top;
+        background-attachment: fixed;
+      }
+   a {
+      font-family: 'Roboto', sans-serif;
+      color: black;
+      text-shadow: none;
+   }
+   p {
+      font-family: 'Roboto', sans-serif;
+   }
+   .col-sm {
+      padding-top: 150px;
+   }
+   h1 {
+      color: #F8F8FF;
+   }
+   .text-center {
+   }
+   .col-md {
+
+   }
+   </style>
+<div class="container">
+<div class="form-box">
+<div class="col-sm">
+<div class="header-text text-center">   
+<div class="header">
+   
 <% if flash.has?(:message) %>
     <%=flash[:message] %>
         <% end %>
@@ -20,7 +57,7 @@
             <br>
             <br>
             <br>
-            <p class="text-left">Please enter the Patient Username, Medical History, and Active Medical Problems as you would like them to appear</p>
+            <p class="text-left">Please enter the Patient Username, Medical History, and Active Medical Problems as you would like them to appear:</p>
             <div class="text-left">
               <form method="post" action="/patients/<%= @patient.id %>">
                 <input id="hidden" type="hidden" name="_method" value="PATCH">
@@ -52,3 +89,6 @@
               <a class="button" href="/logout">Logout</a>
               </form>
             </div>
+            </div>
+            </div>
+            </div> 
