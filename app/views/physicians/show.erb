@@ -1,3 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <style>
+   body {
+        background-image: url('/img/photo-1528460033278-a6ba57020470.avif');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top;
+        background-attachment: fixed;
+      }
+   a {
+      font-family: 'Roboto', sans-serif;
+      color: black;
+      text-shadow: none;
+      text-align: left;
+   }
+   p {
+      font-family: 'Roboto', sans-serif;
+      text-align: left;
+   }
+   .col-sm {
+      padding-top: 100px;
+   }
+   h1 {
+      color: #F8F8FF;
+   }
+   .text-center {
+      text-align: left;
+   }
+   .col-md {
+
+   }
+   </style>
+<div class="container">
+<div class="form-box">
+<div class="col-sm">
+<div class="header-text text-center">   
 <div class="header">
    <% if flash.has?(:message) %>
       <h2 class="text-center"><%=flash[:message] %></h2>
@@ -8,23 +46,24 @@
 <br>
 <br>
 <section>
-   <div class="text-center">
+<div class="col-md">
+   <div class="text-justify">
          <% @patients.each do |patient| %>
-            <p class="text-center">--->
+            <p class="text-justify">--->
                <label class=font-weight-bold>Username:</label>
                <%=patient.username %>
             </p>
-            <p class="text-center">--->
+            <p class="text-justify">--->
                <label class=font-weight-bold>Medical History: </label>
                <%=patient.medical_history %>
             </p>
-            <p class="text-center">--->
+            <p class="text-justify">--->
                <label class=font-weight-bold>Active Problems: </label>
                <%=patient.active_problems %>
             </p>
-            <p class="text-center">Click to edit or delete the patient below.</p>
+            <p class="text-justify">Click to edit or delete the patient below.</p>
             <br>
-            <div class="text-center"> <a class="button" href="/patients/<%=patient.id%>/edit">Edit Patient</a>
+            <div class="text-justify"> <a class="button" href="/patients/<%=patient.id%>/edit">Edit Patient</a>
                <br>
                <br>
                <form method="post" action="/patients/<%= patient.id %>/delete">
@@ -37,6 +76,7 @@
             <%end%>
                <br>
                <br> 
+            </div>
             </div>
 </section>
 
@@ -53,3 +93,6 @@
     <br>
   </div>
 </footer>
+</div>
+</div>
+</div> 
