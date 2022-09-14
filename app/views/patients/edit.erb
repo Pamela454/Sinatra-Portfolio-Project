@@ -16,49 +16,48 @@
    }
    p {
       font-family: 'Roboto', sans-serif;
+      margin-left: 300px;
    }
    .col-sm {
       padding-top: 150px;
    }
-   h1 {
+   h2 {
       color: #F8F8FF;
    }
-   .text-center {
-   }
-   .col-md {
-
+   form {
+      margin-left: 300px;
    }
    </style>
 <div class="container">
 <div class="form-box">
 <div class="col-sm">
-<div class="header-text text-center">   
+<div class="header-text">   
 <div class="header">
    
 <% if flash.has?(:message) %>
-    <%=flash[:message] %>
+   <h2 class="text-justify"><%=flash[:message] %></h2>   
         <% end %>
-            <p class="text-left">
+            <p class="text-justify">
               <label class=font-weight-bold> Patient Username: 
               </label>
               <%=@patient.username %>
             </p>
             <br>
-            <p class="text-left">
+            <p class="text-justify">
               <label class=font-weight-bold> Medical History: 
               </label>
               <%=@patient.medical_history %>
             </p>
             <br>
-            <p class="text-left">
+            <p class="text-justify">
                 <label class=font-weight-bold> Active Medical Problems: </label>
                 <%=@patient.active_problems %>
             </p>
             <br>
             <br>
             <br>
-            <p class="text-left">Please enter the Patient Username, Medical History, and Active Medical Problems as you would like them to appear:</p>
-            <div class="text-left">
+            <p class="text-justify">Please enter the Patient Username, Medical History, and Active Medical Problems as you would like them to appear:</p>
+            <div class="text-justify">
               <form method="post" action="/patients/<%= @patient.id %>">
                 <input id="hidden" type="hidden" name="_method" value="PATCH">
                 <label class=font-weight-bold>Username:
@@ -80,13 +79,6 @@
                 <br>
                 <br>
               <input type="submit" value="Submit Edits">
-              <br>
-              <br>
-              <br>
-              <a class="button" href="/logout">Return to Main Menu</a>
-              <br>
-              <br>
-              <a class="button" href="/logout">Logout</a>
               </form>
             </div>
             </div>

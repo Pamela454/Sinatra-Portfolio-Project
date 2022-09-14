@@ -1,3 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <style>
+   body {
+        background-image: url('/img/photo-1528460033278-a6ba57020470.avif');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top;
+        background-attachment: fixed;
+      }
+   a {
+      font-family: 'Roboto', sans-serif;
+      color: black;
+      text-shadow: none;
+   }
+   p {
+      font-family: 'Roboto', sans-serif;
+      margin-left: 300px;
+   }
+   .col-sm {
+      padding-top: 150px;
+   }
+   h2 {
+    margin-left: 250px;
+   }
+   form {
+      margin-left: 300px;
+   }
+   </style>
+<div class="container">
+<div class="form-box">
+<div class="col-sm">
+<div class="header-text">   
+<div class="header">
+
 <% if flash.has?(:message) %>
     <%=flash[:message] %>
         <% end %>
@@ -29,7 +65,8 @@
               <br>
               <br>
               <input type="submit" value="Submit">
-              <br>
-              <br>
-              <a class="button" href="/logout">Return to Main Menu</a>
             </form>
+  </div>
+</div>
+</div>
+</div> 
