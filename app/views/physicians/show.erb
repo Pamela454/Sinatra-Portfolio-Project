@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-   <style>
+ <style>
    body {
         background-image: url('/img/photo-1528460033278-a6ba57020470.avif');
         background-repeat: no-repeat;
@@ -11,28 +10,31 @@
       }
    a {
       font-family: 'Roboto', sans-serif;
+      margin-left: 250px;
       color: black;
       text-shadow: none;
    }
    p {
       font-family: 'Roboto', sans-serif;
+      margin-left: 300px;
    }
    .col-sm {
       padding-top: 100px;
    }
-   h1 {
-      color: #F8F8FF;
+   h2 {
+      #color: #F8F8FF;
+      margin-left: 250px;
    }
    .text-center {
    }
-   .col-md {
-
+   button, input, optgroup, select, textarea {
+      margin-left: 250px;
    }
    </style>
 <div class="container">
 <div class="form-box">
 <div class="col-sm">
-<div class="header-text text-center">   
+<div class="header-text">   
 <div class="header">
    <% if flash.has?(:message) %>
       <h2 class="text-center"><%=flash[:message] %></h2>
@@ -78,7 +80,7 @@
 </section>
 
 <footer class="page-footer font-small blue">
-  <div class="footer text-center py-3">
+  <div class="footer py-3">
     <a class="button" href="/patients/new">Add New Patient</a>
     <br>
     <br>
