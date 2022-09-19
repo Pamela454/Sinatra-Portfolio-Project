@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-ruby "2.7.0"
+ruby "3.1.1"
 # Specify your gem's dependencies in emr.gemspec
 gem 'sinatra'
 gem 'activerecord', '~> 5.0', '>= 5.0.0.1' 
