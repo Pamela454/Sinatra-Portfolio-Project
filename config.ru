@@ -2,7 +2,6 @@ ENV['SINATRA_ENV'] ||= "development"
 
 require './config/environment' 
 require 'pry'
-require 'toodeloo'
 run Sinatra::Application
 
 if ActiveRecord::Base.connection.migration_context.needs_migration?
