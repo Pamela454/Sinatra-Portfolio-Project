@@ -16,7 +16,6 @@ gem 'bcrypt', '~> 3.1.2'
 gem "tux"
 gem 'sysrandom'
 gem 'dotenv'
-gem 'railties', '~> 5.0', '>= 5.0.0.1'
 
 group :production do
   gem 'pg'
