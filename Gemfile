@@ -18,6 +18,10 @@ gem 'sysrandom'
 gem 'dotenv'
 gem 'railties', '~> 5.0', '>= 5.0.0.1'
 
+group :production do
+  gem 'pg'
+end
+
 group :test do
   gem 'rspec'
   gem 'capybara'
