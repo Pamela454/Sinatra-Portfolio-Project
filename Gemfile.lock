@@ -56,6 +56,8 @@ GEM
       activerecord (>= 5.a)
       database_cleaner-core (~> 2.0.0)
     diff-lcs (1.5.0)
+    dm-core (1.2.1)
+      addressable (~> 2.3)
     dotenv (2.8.1)
     erubi (1.11.0)
     eventmachine (1.2.7)
@@ -160,6 +162,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.2)
   capybara
   database_cleaner!
+  dm-core
   dotenv
   pry
   rack-flash3
