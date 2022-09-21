@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/bmabey/database_cleaner.git
-  revision: c57ab08b003db4bd46a585edad82db8bd7c77914
+  revision: 068656a246fcb56ab1385e7370b2740f5ebef5db
   specs:
     database_cleaner (2.0.1)
       database_cleaner-active_record (~> 2.0.0)
@@ -187,7 +187,7 @@ DEPENDENCIES
   tux
 
 RUBY VERSION
-   ruby 3.1.1p18
+   ruby 2.7.0p0
 
 BUNDLED WITH
    2.3.7

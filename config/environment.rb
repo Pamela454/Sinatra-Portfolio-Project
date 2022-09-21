@@ -4,7 +4,7 @@ Bundler.require(:default, ENV['SINATRA_ENV'])
 Dotenv.load
 
 configure :development do
-  set :database, 'sqlite3:db/database.db'
+  set :database_file, "./database.yml"
 end
 
 ActiveRecord::Base.establish_connection(
