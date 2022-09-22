@@ -5,7 +5,4 @@ development:
 production:
   adapter: postgresql
   database: production
-  username: username
-  password: password
-  host: <%= ENV['DATABASE_HOST'] %>
   
