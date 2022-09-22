@@ -1,11 +1,11 @@
 development:
   adapter: sqlite3
-  database: db/database.db
+  database: db/development
 
 production:
   adapter: postgresql
   database: production
   username: username
   password: password
-  host: localhost
+  host: <%= ENV['DATABASE_HOST'] %>
   
