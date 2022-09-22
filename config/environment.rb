@@ -1,11 +1,10 @@
 #require 'dotenv'
 require 'bundler/setup'
+require 'dotenv'
+Dotenv.load
 
 configure :development do
-  ActiveRecord::Base.establish_connection(
-  :adapter => "sqlite3",
-  :database => "db/#{ENV['SINATRA_ENV']}.sqlite"
-)
+  set :database_file, './database.yml'
 end
 
 configure :production do
