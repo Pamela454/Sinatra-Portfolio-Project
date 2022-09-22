@@ -1,4 +1,4 @@
-class CreatePhysiciansTable < ActiveRecord::Migration
+class CreatePhysiciansTable < ActiveRecord::Migration[5.2]
 
   def change
     create_table :physicians do |column|
