@@ -7,15 +7,18 @@ gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
 gem 'rack-flash3'
 gem 'rake'
 gem 'require_all'
-gem 'sqlite3'
 gem 'shotgun', git: 'https://github.com/delonnewman/shotgun.git'
 gem 'dm-core'
 gem 'thin', '~> 1.7'
-gem 'pry'
 gem 'bcrypt', '~> 3.1.2'
-gem "tux"
 gem 'sysrandom'
 gem 'dotenv'
+
+group :development do
+  gem 'sqlite3'
+  gem 'tux'
+  gem 'pry'
+ end
 
 group :production do
   gem 'pg'
