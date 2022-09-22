@@ -13,11 +13,11 @@ gem 'thin', '~> 1.7'
 gem 'bcrypt', '~> 3.1.2'
 gem 'sysrandom'
 gem 'dotenv'
+gem 'pry'
 
 group :development do
   gem 'sqlite3'
   gem 'tux'
-  gem 'pry'
  end
 
 group :production do
