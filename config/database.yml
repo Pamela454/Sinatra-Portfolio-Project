@@ -7,7 +7,8 @@ development:
 production:
   adapter: postgresql
   database: production
-  username: <%= ENV['PG_USER'] %>
-  password: <%= ENV['PG_PASS'] %>
+  url: <%= ENV['DATABASE_URL'] %>
   pool: 5
+  timeout: 5000
+  
   
