@@ -30,6 +30,10 @@
         font-family: 'Roboto', sans-serif;
       }
 
+      .form-group label, p{
+        color: #fff;
+      }
+
       .col-sm {
         padding-top: 0px;
       }
@@ -41,12 +45,12 @@
 	      border-radius: 5px;
 	      box-shadow: 0 0 10px #000;
 	      position: absolute;
-	      top: 0;
+	      top: 30px;
 	      bottom: 0;
 	      left: 0;
 	      right: 0;
 	      width: 450px;
-	      height: 430px;
+	      height: 550px;
       }
     </style>
 
@@ -61,23 +65,26 @@
 <div class="header-text text-center"> 
 <div class="form-group">
 <form method="post" action="/physicians/signup">
+<% if flash.has?(:message) %>
+  <%=flash[:message] %>
+<% end %>
 <h1 class="h3 mb-3 fw-normal">Please Sign Up</h1>
   <label> Physician Username:
     <%=@new_user.username %>
   </label>
-  <input type="text" name="username">
+  <input type="text" class="form-control input-group-sm" id="floatingInput" name="username" placeholder="username">
   <br>
   <br>
   <label> Physician Password:
     <%=@new_user.password %>
   </label>
-  <input type="text" name="password">
+  <input type="text" class="form-control input-group-sm" id="floatingInput" name="password" placeholder="password">
   <br>
   <br>
   <label> Physician NPI:
     <%=@new_user.npi %>
   </label>
-  <input type="text" name="npi">
+  <input type="text" class="form-control input-group-sm" id="floatingInput" name="npi" placeholder="npi">
   <br>
   <br>
   <input type="submit" value="Submit Profile">
