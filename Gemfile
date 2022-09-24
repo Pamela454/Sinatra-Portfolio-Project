@@ -14,6 +14,7 @@ gem 'bcrypt', '~> 3.1.2'
 gem 'sysrandom'
 gem 'dotenv'
 gem 'pry'
+gem 'active_record_fix_integer_limit'
 
 group :development do
   gem 'sqlite3'

@@ -16,6 +16,8 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
+    active_record_fix_integer_limit (0.1.7)
+      activerecord (>= 5.2.1)
     activemodel (5.2.8.1)
       activesupport (= 5.2.8.1)
     activerecord (5.2.8.1)
@@ -141,6 +143,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  active_record_fix_integer_limit
   activerecord (~> 5.0, >= 5.0.0.1)
   bcrypt (~> 3.1.2)
   capybara
