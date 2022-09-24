@@ -58,7 +58,6 @@
 
   </head>
   <div class="container">
-  <div class="col-sm">
   <div class="header-text text-center"> 
   <div class="form-group">
     <form method="post" action="/patients/login">
@@ -67,26 +66,24 @@
       <% end %>
     <h1 class="h3 mb-3 fw-normal">Please Login</h1>
       <p>Patient Sign In</p>
-
     <div class="form-floating">
-      <input type="text" class="form-control input-group-md" id="floatingInput" name="username" placeholder="name@example.com">
+      <input type="text" class="form-control input-group-sm" id="floatingInput" name="username" placeholder="name@example.com">
       <label for="floatingInput">Email address</label>
     </div>
     <br>
     <div class="form-floating">
-      <input type="password" class="form-control input-group-md" id="floatingPassword" name="password" placeholder="Password">
+      <input type="password" class="form-control input-group-sm" id="floatingPassword" name="password" placeholder="Password">
       <label for="floatingPassword">Password</label>
     </div>
 
     <div class="checkbox mb-3">
     </div>
-    <button class="w-100 btn btn-lg btn-primary" href="/logout" type="submit">Sign in</button>
+    <input type="submit" value="Sign In">
     <br>
     <br>
     <a class="button" href="/logout">Return to Main Menu</a>
   </form>
 </main>
-</div>
 </div>
 </div>
 </body>
