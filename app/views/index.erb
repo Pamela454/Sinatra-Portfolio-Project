@@ -50,16 +50,9 @@
    <% if session[:user_type]=="physician" %>
    <br>
    <a href="/physicians/<%= @physician.id %>"> Physician Profile Page </a>
-   <br>
-   <br>
-   <br>
    <a class="button" href="/logout">Logout</a>
    <% elsif session[:user_type]=="patient" %>
-   <br>
    <a href="/patients/<%= @patient.id %>"> Patient Profile Page </a>
-   <br>
-   <br>
-   <br>
    <a class="button" href="/logout">Logout</a>
    <% else %>
    <p class="font-weight-bold">Please sign in below:</p>
@@ -68,7 +61,6 @@
    <br>
    <br>
    <a href="/patients/login"> Patient Sign In </a>
-   <br>
  <% end %>
 </div>
 </div>

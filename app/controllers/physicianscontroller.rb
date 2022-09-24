@@ -38,7 +38,6 @@ class PhysiciansController < ApplicationController
 
 
   post '/physicians/login' do
-    binding.pry 
     @physician = Physician.find_by(username: params[:username])
     if @physician && @physician.authenticate(params[:password]) 
       session[:id] = @physician.id

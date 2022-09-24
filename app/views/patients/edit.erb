@@ -44,18 +44,15 @@
               </label>
               <%=@patient.username %>
             </p>
-            <br>
             <p class="text-justify">
               <label class=font-weight-bold> Medical History: 
               </label>
               <%=@patient.medical_history %>
             </p>
-            <br>
             <p class="text-justify">
                 <label class=font-weight-bold> Active Medical Problems: </label>
                 <%=@patient.active_problems %>
             </p>
-            <br>
             <br>
             <br>
             <p class="text-justify">Please enter the Patient Username, Medical History, and Active Medical Problems as you would like them to appear:</p>
@@ -64,21 +61,16 @@
                 <input id="hidden" type="hidden" name="_method" value="PATCH">
                 <label class=font-weight-bold>Username:
                 <input type="text" class="form-control input-group-sm" id="floatingInput" name="username" placeholder="username">
-
                 </label>             
-                <br>
-                <br>
                 <br>
                 <label class=font-weight-bold>Medical History:
                 <input type="text" class="form-control input-group-sm" id="floatingInput" name="medical_history" placeholder="medical_history">
                 </label>
                 <br>
                 <br>
-                <br>
                 <label class=font-weight-bold>Active Medical Problems:
                 <input type="text" class="form-control input-group-sm" id="floatingInput" name="active_problems" placeholder="active_problems">
                 </label>
-                <br>
                 <br>
                 <br>
               <input type="submit" value="Submit Edits">

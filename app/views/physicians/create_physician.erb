@@ -50,7 +50,7 @@
 	      left: 0;
 	      right: 0;
 	      width: 450px;
-	      height: 550px;
+	      height: 430px;
       }
     </style>
 
@@ -74,22 +74,17 @@
   </label>
   <input type="text" class="form-control input-group-sm" id="floatingInput" name="username" placeholder="username">
   <br>
-  <br>
   <label> Physician Password:
     <%=@new_user.password %>
   </label>
   <input type="text" class="form-control input-group-sm" id="floatingInput" name="password" placeholder="password">
-  <br>
   <br>
   <label> Physician NPI:
     <%=@new_user.npi %>
   </label>
   <input type="text" class="form-control input-group-sm" id="floatingInput" name="npi" placeholder="npi">
   <br>
-  <br>
   <input type="submit" value="Submit Profile">
-  <br>
-  <br>
   <br>
   <a class="button" href="/logout">Return to Main Menu</a>
 </form>

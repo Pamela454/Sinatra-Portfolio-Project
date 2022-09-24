@@ -50,7 +50,7 @@
 	      left: 0;
 	      right: 0;
 	      width: 450px;
-	      height: 550px;
+	      height: 430px;
       }
     </style>
 
@@ -68,21 +68,19 @@
 <% if flash.has?(:message) %>
   <%=flash[:message] %>
 <% end %>
+<br>
 <h1 class="h3 mb-3 fw-normal">Please Sign Up</h1>
   <label> Patient Username:
     <%=@new_user.username %>
   </label>
   <input type="text" class="form-control input-group-sm" id="floatingInput" name="username" placeholder="username">
   <br>
-  <br>
   <label> Patient Password:
     <%=@new_user.password %>
   </label>
   <input type="text" class="form-control input-group-sm" id="floatingInput" name="password" placeholder="password">
   <br>
-  <br>
   <input type="submit" value="Submit Profile">
-  <br>
   <br>
   <br>
   <a class="button" href="/logout">Return to Main Menu</a>

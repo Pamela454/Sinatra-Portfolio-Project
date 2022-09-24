@@ -16,7 +16,6 @@ class PatientsController < ApplicationController
   end
 
   post "/patients/signup" do
-    binding.pry 
     if params[:username] == "" || params[:password] == ""
       flash[:message] = "Please enter a username and password to create a new patient."
       redirect "/patients/signup"
