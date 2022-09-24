@@ -3,5 +3,5 @@ Patient.create(username: "Matt2", password: "abc234", physician_id: 1, medical_h
 Patient.create(username: "Matt3", password: "abc345", physician_id: 2, medical_history: "afib on coumadin, heart failure", active_problems: "daily weights, low Na diet management")
 Patient.create(username: "Matt4", password: "abc456", physician_id: 2, medical_history: "Stage 3 CKD, hypertension", active_problems: "dialysis")
 
-Physician.create(username: "Doc1", npi: 3, password: "345abc")
-Physician.create(username: "Doc2", npi: 2, password: "234abc")
+Physician.create(username: "Doc1", npi: 3123456789, password: "345abc")
+Physician.create(username: "Doc2", npi: 2134567891, password: "234abc")

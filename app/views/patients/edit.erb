@@ -22,10 +22,11 @@
       padding-top: 150px;
    }
    h2 {
-      color: #F8F8FF;
+      text-align: center;
    }
    form {
       margin-left: 300px;
+      padding: 40px;
    }
    </style>
 <div class="container">
@@ -37,7 +38,7 @@
 <% if flash.has?(:message) %>
    <h2 class="text-justify"><%=flash[:message] %></h2>   
         <% end %>
-        <h2> Edit Patient </h2>
+        <h2 class="h3 mb-3 fw-normal"> Edit Patient </h2>
             <p class="text-justify">
               <label class=font-weight-bold> Patient Username: 
               </label>
@@ -62,19 +63,20 @@
               <form method="post" action="/patients/<%= @patient.id %>">
                 <input id="hidden" type="hidden" name="_method" value="PATCH">
                 <label class=font-weight-bold>Username:
-                <input id="username" name="username">   
+                <input type="text" class="form-control input-group-sm" id="floatingInput" name="username" placeholder="username">
+
                 </label>             
                 <br>
                 <br>
                 <br>
                 <label class=font-weight-bold>Medical History:
-                <input id="medical_history" name="medical_history">
+                <input type="text" class="form-control input-group-sm" id="floatingInput" name="medical_history" placeholder="medical_history">
                 </label>
                 <br>
                 <br>
                 <br>
                 <label class=font-weight-bold>Active Medical Problems:
-                <input id="active_problems" name="active_problems">
+                <input type="text" class="form-control input-group-sm" id="floatingInput" name="active_problems" placeholder="active_problems">
                 </label>
                 <br>
                 <br>

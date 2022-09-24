@@ -4,6 +4,4 @@ class Patient < ActiveRecord::Base
 
   validates :username, :presence => true, :uniqueness => true
   validates :password, :presence => true
-  validates :medical_history, :presence => true
-  validates :active_problems, :presence => true
 end

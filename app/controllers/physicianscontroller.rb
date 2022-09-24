@@ -25,7 +25,6 @@ class PhysiciansController < ApplicationController
         flash[:message] = "Successful creation of profile. Please log in."
         redirect "/physicians/login"
       else
-        binding.pry
         flash[:message] = "Not valid profile data."
         redirect "/physicians/login"
       end
@@ -39,6 +38,7 @@ class PhysiciansController < ApplicationController
 
 
   post '/physicians/login' do
+    binding.pry 
     @physician = Physician.find_by(username: params[:username])
     if @physician && @physician.authenticate(params[:password]) 
       session[:id] = @physician.id

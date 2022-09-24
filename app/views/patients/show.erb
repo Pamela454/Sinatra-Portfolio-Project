@@ -16,6 +16,7 @@
    }
    p {
       font-family: 'Roboto', sans-serif;
+      margin-left: 300px;
    }
    .col-sm {
       padding-top: 150px;
@@ -31,7 +32,7 @@
    <div class="container">
    <div class="form-box">
    <div class="col-sm">
-   <div class="header-text text-center">   
+   <div class="header-text">   
   <div class="header">
 <% if flash.has?(:message) %>
   <h3><%= flash[:message] %></h3>
@@ -39,30 +40,26 @@
 </div>
 
   <section>
+  <div class="col-md">
     <div class="col text-justify">
       <br>
       <br>
-        <h3 class="text-justify"> Name:
+        <p class="text-justify"> Name:
       <%= @patient.username %>
-      </h3>
+      </p>
         <br>
         <br>
-        <h3 class="text-justify"> Medical History:
+        <p class="text-justify"> Medical History:
       <%= @patient.medical_history %>
-      </h3>
+      </p>
         <br>
         <br>
-        <h3 class="text-justify"> Active Problems:
+        <p class="text-justify"> Active Problems:
       <%= @patient.active_problems %>
-       </h3> 
+       </p> 
     </div>
+  </div>
   </section>
-
-<footer class="page-footer font-small blue">
-  <br>
-  <a class="button" href="/logout">Logout</a>
-  <br>
-</footer>
 </div>
 </div>
 </div>

@@ -22,13 +22,20 @@
        <% if session[:user_type] != "physician" && session[:user_type] != "patient" %>
        <ul class="navbar-nav ml-auto mb-3 mb-lg-0">
          <li class="nav-item">
-           <a class="nav-link active" aria-current="page" href="/physicians/signup">Physician SignUp</a>
+           <a class="nav-link active" aria-current="page" href="/physicians/signup">Physician Sign Up</a>
          </li>
          <li class="nav-item">
-           <a class="nav-link active" aria-current="page" href="/patients/signup">Patient SignUp</a>
+           <a class="nav-link active" aria-current="page" href="/patients/signup">Patient Sign Up</a>
          </li>
        </ul>
        <% end %>
+       <% if session[:user_type]== "patient" %>
+       <ul class="navbar-nav ml-auto mb-3 mb-lg-0">
+         <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/logout">Logout</a>
+         </li>
+         </ul>
+         <% end %>
        <% if session[:user_type]== "physician" %>
        <ul class="navbar-nav ml-auto mb-3 mb-lg-0">
          <li class="nav-item">
