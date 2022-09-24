@@ -1,5 +1,0 @@
-class ChangeIntegerLimitPhysicians < ActiveRecord::Migration[5.2]
-    def change
-      change_column :physicians, :npi, :integer, limit: 8
-    end 
-  end
