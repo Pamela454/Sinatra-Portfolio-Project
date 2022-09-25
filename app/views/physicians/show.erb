@@ -10,23 +10,24 @@
       }
    .button {
       font-family: 'Roboto', sans-serif;
-      margin-left: 250px;
+      #margin-left: 250px;
       color: black;
       text-shadow: none;
    }
    p {
       font-family: 'Roboto', sans-serif;
-      margin-left: 300px;
+      #margin-left: 300px;
    }
-   .col-sm {
-      padding-top: 100px;
+   .col-lg {
+      padding-top: 25px;
+      max-width: 100%;
    }
    h2 {
       #color: #F8F8FF;
-      margin-left: 250px;
+      #margin-left: 250px;
    }
    button, input, optgroup, select, textarea {
-      margin-left: 250px;
+      #margin-left: 250px;
    }
    a {
       color: #F8F8FF;
@@ -53,12 +54,24 @@
     border-color: buttonborder;
     border-image: initial;
    }
+   @media (min-width: 600px) {
+    .col-lg {
+      padding-left: 200px;
+    }
+    h2 {
+      padding-top: 75px;
+       }
+   }
+   @media (max-width: 600px) {
+    h2 {
+      padding-top: 150px;
+      }
+   }
+
   </style>
 <div class="container">
 <div class="form-box">
-<div class="col-sm">
-<div class="header-text">   
-<div class="header">
+<div class="header text-center">
    <% if flash.has?(:message) %>
       <h2 class="text-justify"><%=flash[:message] %></h2>
    <% end %>
@@ -68,21 +81,26 @@
 <br>
 <br>
 <section>
-<div class="col-md">
+<div class="col-lg ml-250 ml-">
    <div class="text-justify">
+     <row class="justify-content-center">
          <% @patients.each do |patient| %>
             <p class="text-justify">--->
                <label class=font-weight-bold>Username:</label>
                <%=patient.username %>
             </p>
+            <row class="justify-content-center">
             <p class="text-justify">--->
                <label class=font-weight-bold>Medical History: </label>
                <%=patient.medical_history %>
             </p>
+      </row>
+      <row class="justify-content-center">
             <p class="text-justify">--->
                <label class=font-weight-bold>Active Problems: </label>
                <%=patient.active_problems %>
             </p>
+      </row>
             <p class="text-justify">Click to edit or delete the patient below.</p>
             <br>
             <div class="text-justify"> <a class="button" href="/patients/<%=patient.id%>/edit">Edit Patient</a>
@@ -98,7 +116,6 @@
             <%end%>
                <br>
                <br> 
-            </div>
             </div>
 </section>
 </div>

@@ -22,16 +22,20 @@
    }
    p {
       font-family: 'Roboto', sans-serif;
-      margin-left: 300px;
+      #margin-left: 300px;
    }
-   .col-sm {
-      padding-top: 150px;
+   .col-lg {
+      padding-top: 50px;
+   }
+   .container {
+    height: 200vh;
    }
    h3 {
       #color: #F8F8FF;
       text-align: justify; 
       text-justify: inter-word;
-      margin-left: 300px;
+      #margin-left: 300px;
+      #padding-top: 100px;
    }
    </style>
 
@@ -50,23 +54,23 @@
 </div>
 
 <section>
-  <div class="col-md">
-    <div class="col text-justify">
-      <br>
-      <br>
+  <div class="col-lg">
+    <div class="col">
+    <div class ="row">
         <p class="text-justify"> Name:
-      <%= @patient.username %>
-      </p>
-        <br>
-        <br>
+          <%= @patient.username %>
+        </p>
+    </div>
+    <div class ="row">
         <p class="text-justify"> Medical History:
       <%= @patient.medical_history %>
       </p>
-        <br>
-        <br>
+    </div>
+    <div class ="row">
         <p class="text-justify"> Active Problems:
       <%= @patient.active_problems %>
        </p> 
+    </div>
     </div>
   </div>
 </section>
