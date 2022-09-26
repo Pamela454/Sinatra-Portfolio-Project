@@ -16,17 +16,17 @@
    }
    p {
       font-family: 'Roboto', sans-serif;
-      margin-left: 300px;
+      #margin-left: 300px;
    }
    .col-sm {
-      padding-top: 150px;
+      padding-top: 50px;
    }
    h2 {
       text-align: center;
    }
    form {
-      margin-left: 300px;
-      padding: 40px;
+      #margin-left: 300px;
+      #padding: 40px;
    }
    </style>
 <div class="container">
@@ -36,39 +36,39 @@
 <div class="header">
    
 <% if flash.has?(:message) %>
-   <h2 class="text-justify"><%=flash[:message] %></h2>   
+   <%=flash[:message] %>  
         <% end %>
-        <h2 class="h3 mb-3 fw-normal"> Edit Patient </h2>
+        <h2> Edit Patient </h2>
+      <form method="post" action="/patients/<%= @patient.id %>">
             <p class="text-justify">
-              <label class=font-weight-bold> Patient Username: 
+              <label class="font-weight-bold"> Patient Username: 
               </label>
               <%=@patient.username %>
             </p>
             <p class="text-justify">
-              <label class=font-weight-bold> Medical History: 
-              </label>
+              <label class="font-weight-bold">Medical History:
+              </label> 
               <%=@patient.medical_history %>
             </p>
             <p class="text-justify">
-                <label class=font-weight-bold> Active Medical Problems: </label>
+                <label class="font-weight-bold"> Active Medical Problems: </label>
                 <%=@patient.active_problems %>
             </p>
             <br>
-            <br>
             <p class="text-justify">Please enter the Patient Username, Medical History, and Active Medical Problems as you would like them to appear:</p>
             <div class="text-justify">
-              <form method="post" action="/patients/<%= @patient.id %>">
                 <input id="hidden" type="hidden" name="_method" value="PATCH">
-                <label class=font-weight-bold>Username:
+                <label class="font-weight-bold">Username:
                 <input type="text" class="form-control input-group-sm" id="floatingInput" name="username" placeholder="username">
                 </label>             
                 <br>
-                <label class=font-weight-bold>Medical History:
+                <br>
+                <label class="font-weight-bold">Medical History:
                 <input type="text" class="form-control input-group-sm" id="floatingInput" name="medical_history" placeholder="medical_history">
                 </label>
                 <br>
                 <br>
-                <label class=font-weight-bold>Active Medical Problems:
+                <label class="font-weight-bold">Active Medical Problems:
                 <input type="text" class="form-control input-group-sm" id="floatingInput" name="active_problems" placeholder="active_problems">
                 </label>
                 <br>
