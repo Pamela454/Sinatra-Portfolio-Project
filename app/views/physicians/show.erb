@@ -16,14 +16,15 @@
    }
    p {
       font-family: 'Roboto', sans-serif;
-      #margin-left: 300px;
+      margin-left: 15px;
    }
    .col-lg {
       padding-top: 25px;
       max-width: 100%;
    }
-   h2 {
+   h2, h4, h5 {
       #color: #F8F8FF;
+      font-family: 'Roboto', sans-serif;
       #margin-left: 250px;
    }
    button, input, optgroup, select, textarea {
@@ -56,7 +57,7 @@
    }
    @media (min-width: 600px) {
     .col-lg {
-      padding-left: 200px;
+      #padding-left: 25px;
     }
     h2 {
       padding-top: 75px;
@@ -76,46 +77,42 @@
       <h2 class="text-justify"><%=flash[:message] %></h2>
    <% end %>
    <br>
-   <h2>Welcome <%= @physician.username %></h2>
+   <h2 class="fw-bold">Welcome <%= @physician.username %></h2>
 </div>
 <br>
 <br>
 <section>
 <div class="col-lg ml-250 ml-">
    <div class="text-justify">
-     <row class="justify-content-center">
          <% @patients.each do |patient| %>
-            <p class="text-justify">--->
-               <label class=font-weight-bold>Username:</label>
+            <div class="card w-100 shadow-sm p-3 mb-5 bg-white rounded" style="width: 18rem;">
+            <div class="card-body">
+            <div class="card-header bg-transparent border-success">         
+            <h4 class="card-text text-left fw-bold">
+               Username:
                <%=patient.username %>
-            </p>
-            <row class="justify-content-center">
-            <p class="text-justify">--->
-               <label class=font-weight-bold>Medical History: </label>
+            </h4>
+            </div>
+            <br>
+            <p class="card-text text-justify fw-bold">
+               <h5 class="fw-bold">Medical History: </h5> 
                <%=patient.medical_history %>
             </p>
-      </row>
-      <row class="justify-content-center">
-            <p class="text-justify">--->
-               <label class=font-weight-bold>Active Problems: </label>
+            <p class="card-text text-justify">
+               <h5 class="fw-bold">Active Problems: </h5>
                <%=patient.active_problems %>
             </p>
-      </row>
-            <p class="text-justify">Click to edit or delete the patient below.</p>
-            <br>
+            <h5 class="fw-bold">Click to edit or delete the patient below.</h5>
             <div class="text-justify"> <a class="button" href="/patients/<%=patient.id%>/edit">Edit Patient</a>
-               <br>
-               <br>
+            <br>
+            <br>
                <form method="post" action="/patients/<%= patient.id %>/delete">
                   <input id="hidden" type="hidden" name="_method" value="Delete">
-                  <input type="submit" value="Delete"> </div>
+                  <input type="submit" value="Delete"> </div>      
             </form>
-            <br>
-            <br>
-            <br>
+            </div>
+            </div>
             <%end%>
-               <br>
-               <br> 
             </div>
 </section>
 </div>
