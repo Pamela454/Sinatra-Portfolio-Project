@@ -15,12 +15,6 @@ Bundler.require
  
   configure :production do
 
-    class ActionDispatch::Request
-      def local?
-        false
-      end
-     end
-
    db = URI.parse(ENV['DATABASE_URL'] || 'postgres://localhost/production')
   
    ActiveRecord::Base.establish_connection(
