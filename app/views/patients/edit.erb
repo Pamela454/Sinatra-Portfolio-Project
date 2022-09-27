@@ -2,32 +2,7 @@
 <html lang="en">
 
  <style>
-   body {
-        background-image: url('/img/157802-turquoise-background.jpg');
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: top;
-        background-attachment: fixed;
-   }
-   a {
-      font-family: 'Roboto', sans-serif;
-      color: black;
-      text-shadow: none;
-   }
-   p {
-      font-family: 'Roboto', sans-serif;
-      #color: #F8F8FF;
-   }
-   h2 {
-      #color: #F8F8FF;
-      text-align: center;
-   }
-   h6 {
-      text-align: left;
-   }
-   .input-group-sm {
-      width: 200px;
-   }
+   
  </style>
 
 <div class="container">
@@ -60,5 +35,29 @@
    </div>
 </div>
 
-       
+<div class="container">
+ <div class="card w-100 shadow-sm p-3 mb-5 bg-white rounded" style="width: 18rem;">
+  <div class="card-body">
+  <h6 class="text-justify fw-bold">Please enter the Patient Username, Medical History, and Active Medical Problems as you would like them to appear:</h6>
+   <form method="post" action="/patients/<%= @patient.id %>">
+    <input id="hidden" type="hidden" name="_method" value="PATCH">
+    <br>
+     <label>Username:
+     </label> 
+      <input type="text" class="form-control input-group-sm" id="floatingInput" name="username" placeholder="username"> 
+    <br>
+    <label>Medical History:
+    </label>
+     <input type="text" class="form-control input-group-sm" id="floatingInput" name="medical_history" placeholder="medical history">
+    <br>
+    <label>Active Medical Problems:
+    </label>
+     <input type="text" class="form-control input-group-sm" id="floatingInput" name="active_problems" placeholder="active problems">
+     <br>
+     <input type="submit" value="Submit Edits">
+  </form>
+
+  </div>
+ </div> 
+</div>          
 
