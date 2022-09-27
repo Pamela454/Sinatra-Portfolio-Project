@@ -16,66 +16,89 @@
    }
    p {
       font-family: 'Roboto', sans-serif;
-      #margin-left: 300px;
+      #color: #F8F8FF;
+   }
+   .form-group label, p {
+        #color: #fff;
    }
    .col-sm {
-      padding-top: 50px;
+      padding-top: 0px;
    }
    h2 {
+      #color: #F8F8FF;
       text-align: center;
    }
-   form {
-      #margin-left: 300px;
-      #padding: 40px;
+   h6 {
+      text-align: left;
    }
+   .form-group {
+        background-color: rgba(0, 0, 0, 0.6);
+	      margin: auto auto;
+	      padding: 40px;
+	      border-radius: 5px;
+	      box-shadow: 0 0 10px #000;
+	      position: absolute;
+	      top: 700px;
+	      bottom: 0;
+	      left: 0;
+	      right: 0;
+         width: 1120px;
+	      height: 430px;
+      }
    </style>
 <div class="container">
-<div class="form-box">
-<div class="col-sm">
-<div class="header-text">   
-<div class="header">
-   
-<% if flash.has?(:message) %>
+ <div class="header-text text-center">   
+  <% if flash.has?(:message) %>
    <%=flash[:message] %>  
-        <% end %>
-        <h2> Edit Patient </h2>
-      <form method="post" action="/patients/<%= @patient.id %>">
-            <p class="text-justify">
-              <label class="font-weight-bold"> Patient Username: 
-              </label>
-              <%=@patient.username %>
-            </p>
-            <p class="text-justify">
-              <label class="font-weight-bold">Medical History:
-              </label> 
-              <%=@patient.medical_history %>
-            </p>
-            <p class="text-justify">
-                <label class="font-weight-bold"> Active Medical Problems: </label>
-                <%=@patient.active_problems %>
-            </p>
-            <br>
-            <p class="text-justify">Please enter the Patient Username, Medical History, and Active Medical Problems as you would like them to appear:</p>
-            <div class="text-justify">
-                <input id="hidden" type="hidden" name="_method" value="PATCH">
-                <label class="font-weight-bold">Username:
-                <input type="text" class="form-control input-group-sm" id="floatingInput" name="username" placeholder="username">
-                </label>             
-                <br>
-                <br>
-                <label class="font-weight-bold">Medical History:
-                <input type="text" class="form-control input-group-sm" id="floatingInput" name="medical_history" placeholder="medical_history">
-                </label>
-                <br>
-                <br>
-                <label class="font-weight-bold">Active Medical Problems:
-                <input type="text" class="form-control input-group-sm" id="floatingInput" name="active_problems" placeholder="active_problems">
-                </label>
-                <br>
-                <br>
-              <input type="submit" value="Submit Edits">
-              </form>
-            </div>
-            </div>
-            </div>
-            </div> 
+  <% end %>
+ </div>
+
+<div class="card w-100 shadow-sm p-3 mb-5 bg-white rounded" style="width: 18rem;">
+ <div class="card-body">
+  <div class="card-header bg-transparent border-success">         
+      <h2> Edit Patient </h2>     
+  </div>  
+       <p class="text-justify">
+       <h6 class="fw-bold"> Patient Username: 
+       </h6>
+        <%=@patient.username %>
+       </p>
+       <p class="text-justify">
+        <h6 class="fw-bold">Medical History:
+        </h6> 
+         <%=@patient.medical_history %>
+       </p>
+       <p class="text-justify">
+        <h6 class="fw-bold"> Active Medical Problems: </h6>
+         <%=@patient.active_problems %>
+       </p>
+    </div>
+   </div>
+</div>
+
+<div class="container">
+<div class="card w-100 shadow-sm p-3 mb-5 bg-white rounded" style="width: 18rem;">
+ <div class="card-body">
+  <form method="post" action="/patients/<%= @patient.id %>">
+   <h6 class="text-justify fw-bold">Please enter the Patient Username, Medical History, and Active Medical Problems as you would like them to appear:</h6>
+                
+    <input id="hidden" type="hidden" name="_method" value="PATCH">
+     <label class="font-weight-bold">Username:
+     </label> 
+      <input type="text" class="form-control input-group-sm" id="floatingInput" name="username" placeholder="username"> 
+    <br>
+    <label class="font-weight-bold">Medical History:
+    </label>
+     <input type="text" class="form-control input-group-sm" id="floatingInput" name="medical_history" placeholder="medical history">
+    <br>
+    <label class="font-weight-bold">Active Medical Problems:
+    </label>
+     <input type="text" class="form-control input-group-sm" id="floatingInput" name="active_problems" placeholder="active problems">
+     <br>
+     <input type="submit" value="Submit Edits">
+  </form>
+
+ </div>
+</div> 
+</div>          
+
