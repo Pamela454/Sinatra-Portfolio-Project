@@ -98,7 +98,7 @@ class PatientsController < ApplicationController
 
   get '/patients/:id/edit' do 
     if self.current_user.class == Physician
-      @patient = Patient.find_by(params[:id])
+      @patient = Patient.find_by(id: params[:id])
       erb :"/patients/edit"
     else
       flash[:message] = "You do not have access to that feature."
