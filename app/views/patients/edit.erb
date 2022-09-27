@@ -37,30 +37,28 @@
   <% end %>
  </div>
 
-
-<div class="container">
  <div class="card w-100 shadow-sm p-3 mb-5 bg-white rounded" style="width: 18rem;">
-  <div class="card-body">
-  <h6 class="text-justify fw-bold">Please enter the Patient Username, Medical History, and Active Medical Problems as you would like them to appear:</h6>
-   <form method="post" action="/patients/<%= @patient.id %>">
-    <input id="hidden" type="hidden" name="_method" value="PATCH">
-    <br>
-     <label>Username:
-     </label> 
-      <input type="text" class="form-control input-group-sm" id="floatingInput" name="username" placeholder="username"> 
-    <br>
-    <label>Medical History:
-    </label>
-     <input type="text" class="form-control input-group-sm" id="floatingInput" name="medical_history" placeholder="medical history">
-    <br>
-    <label>Active Medical Problems:
-    </label>
-     <input type="text" class="form-control input-group-sm" id="floatingInput" name="active_problems" placeholder="active problems">
-     <br>
-     <input type="submit" value="Submit Edits">
-  </form>
+ <div class="card-body">
+  <div class="card-header bg-transparent border-success">         
+      <h2> Edit Patient </h2>     
+  </div>  
+       <p class="card-text text-justify">
+       <h6 class="fw-bold"> Patient Username: 
+       </h6>
+        <%=@patient.username %>
+       </p>
+       <p class="card-text text-justify">
+        <h6 class="fw-bold">Medical History:
+        </h6> 
+         <%=@patient.medical_history %>
+       </p>
+       <p class="card-text text-justify">
+        <h6 class="fw-bold"> Active Medical Problems: </h6>
+         <%=@patient.active_problems %>
+       </p>
+    </div>
+   </div>
+</div>
 
-  </div>
- </div> 
-</div>          
+       
 
