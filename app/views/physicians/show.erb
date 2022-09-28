@@ -1,118 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-   <style>
-      body {
+ <style>
+   body {
       background-image: url('/img/157802-turquoise-background.jpg');
       background-repeat: no-repeat;
       background-size: cover;
       background-position: top;
       background-attachment: fixed;
       }
-      .button {
+   .button {
       font-family: 'Roboto', sans-serif;
       #margin-left: 250px;
       color: black;
       text-shadow: none;
-      }
-      p {
+   }
+   p {
       font-family: 'Roboto', sans-serif;
       margin-left: 15px;
-      }
-      .col-lg {
+   }
+   .col-lg {
       padding-top: 25px;
       max-width: 100%;
-      }
-      h2, h4, h5 {
+   }
+   h2, h4, h5 {
       #color: #F8F8FF;
       font-family: 'Roboto', sans-serif;
       #margin-left: 250px;
-      }
-      button, input, optgroup, select, textarea {
+   }
+   button, input, optgroup, select, textarea {
       #margin-left: 250px;
-      }
-      a {
+   }
+   a {
       color: #F8F8FF;
-      }
-      .navbar-nav .nav-link.active, .navbar-nav .show>.nav-link {
+   }
+   .navbar-nav .nav-link.active, .navbar-nav .show>.nav-link {
       color: #F8F8FF;
-      }
-      .button {
-      #margin: 0;
-      font-family: inherit;
-      font-size: inherit;
-      line-height: inherit;
-      user-select: none;
-      white-space: pre;
-      align-items: flex-start;
-      text-align: center;
-      cursor: default;
-      box-sizing: border-box;
-      background-color: buttonface;
-      color: buttontext;
-      padding: 1px 6px;
-      border-width: 2px;
-      border-style: outset;
-      border-color: buttonborder;
-      border-image: initial;
-      }
-      @media (min-width: 600px) {
-      .col-lg {
+   }
+   .button {
+    #margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    user-select: none;
+    white-space: pre;
+    align-items: flex-start;
+    text-align: center;
+    cursor: default;
+    box-sizing: border-box;
+    background-color: buttonface;
+    color: buttontext;
+    padding: 1px 6px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonborder;
+    border-image: initial;
+   }
+   @media (min-width: 600px) {
+    .col-lg {
       #padding-left: 25px;
-      }
-      h2 {
+    }
+    h2 {
       padding-top: 50px;
-      }
-      }
-      @media (max-width: 650px) {
-      h2 {
+       }
+   }
+   @media (max-width: 650px) {
+    h2 {
       padding-top: 200px;
       }
-      }
-   </style>
-   <div class="container">
-      <div class="form-box">
-         <div class="header text-center">
-            <% if flash.has?(:message) %>
-            <h2 class="text-justify"><%=flash[:message] %></h2>
-            <% end %>
-            <h2 class="fw-bold">Welcome <%= @physician.username %></h2>
-         </div>
-         <section>
-            <div class="col-lg ml-250 ml-">
-               <div class="text-justify">
-                  <% @patients.each do |patient| %>
-                  <div class="card w-100 shadow-sm p-3 mb-5 bg-white rounded" style="width: 18rem;">
-                     <div class="card-body">
-                        <div class="card-header bg-transparent border-success">
-                           <h4 class="card-text text-left fw-bold">
-                              Username:
-                              <%=patient.username %>
-                           </h4>
-                        </div>
-                        <br>
-                        <p class="card-text text-justify fw-bold">
-                        <h5 class="fw-bold">Medical History: </h5>
-                        <%=patient.medical_history %>
-                        </p>
-                        <p class="card-text text-justify">
-                        <h5 class="fw-bold">Active Problems: </h5>
-                        <%=patient.active_problems %>
-                        </p>
-                        <h5 class="fw-bold">Click to edit or delete the patient below.</h5>
-                        <div class="text-justify">
-                           <a class="button" href="/patients/<%=patient.id%>/edit">Edit Patient</a>
-                           <br>
-                           <br>
-                           <form method="post" action="/patients/<%= patient.id %>/delete">
-                              <input id="hidden" type="hidden" name="_method" value="Delete">
-                              <input type="submit" value="Delete"> 
-                        </div>
-                        </form>
-                     </div>
-                  </div>
-                  <%end%>
-               </div>
-         </section>
-         </div>
-      </div>
-   </div>
+   }
+
+  </style>
+<div class="container">
+<div class="form-box">
+<div class="header text-center">
+   <% if flash.has?(:message) %>
+      <h2 class="text-justify"><%=flash[:message] %></h2>
+   <% end %>
+   <h2 class="fw-bold">Welcome <%= @physician.username %></h2>
+</div>
+
+<section>
+<div class="col-lg ml-250 ml-">
+   <div class="text-justify">
+         <% @patients.each do |patient| %>
+            <div class="card w-100 shadow-sm p-3 mb-5 bg-white rounded" style="width: 18rem;">
+            <div class="card-body">
+            <div class="card-header bg-transparent border-success">         
+            <h4 class="card-text text-left fw-bold">
+               Username:
+               <%=patient.username %>
+            </h4>
+            </div>
+            <br>
+            <p class="card-text text-justify fw-bold">
+               <h5 class="fw-bold">Medical History: </h5> 
+               <%=patient.medical_history %>
+            </p>
+            <p class="card-text text-justify">
+               <h5 class="fw-bold">Active Problems: </h5>
+               <%=patient.active_problems %>
+            </p>
+            <h5 class="fw-bold">Click to edit or delete the patient below.</h5>
+            <div class="text-justify"> <a class="button" href="/patients/<%=patient.id%>/edit">Edit Patient</a>
+            <br>
+            <br>
+               <form method="post" action="/patients/<%= patient.id %>/delete">
+                  <input id="hidden" type="hidden" name="_method" value="Delete">
+                  <input type="submit" value="Delete"> </div>      
+            </form>
+            </div>
+            </div>
+            <%end%>
+            </div>
+</section>
+</div>
+</div>
+</div> 

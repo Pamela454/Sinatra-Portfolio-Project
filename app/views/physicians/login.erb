@@ -1,81 +1,91 @@
 <!doctype html>
 <html lang="en">
-   <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="description" content="">
-      <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-      <meta name="generator" content="Hugo 0.101.0">
-      <title>Signin</title>
-      <style>
-         body {
-         background-image: url('/img/157802-turquoise-background.jpg');
-         background-repeat: no-repeat;
-         background-size: cover;
-         background-position: top;
-         background-attachment: fixed;
-         }
-         h1 {
-         color: #F8F8FF;
-         }
-         a {
-         font-family: 'Roboto', sans-serif;
-         color: #F8F8FF;
-         }
-         p {
-         color: #F8F8FF;
-         font-family: 'Roboto', sans-serif;
-         }
-         .col-sm {
-         padding-top: 0px;
-         }
-         .form-group label, p{
-         color: #fff;
-         }
-         .form-group {
-         background-color: rgba(0, 0, 0, 0.6);
-         margin: auto auto;
-         padding: 40px;
-         border-radius: 5px;
-         box-shadow: 0 0 10px #000;
-         position: absolute;
-         top: 30px;
-         bottom: 0;
-         left: 0;
-         right: 0;
-         max-width: 100%;
-         width: 450px;
-         height: 430px;
-         }
-      </style>
-      <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sign-in/">
-      <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
-      <link href="/docs/5.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-      <link href="/css/signin.css" rel="stylesheet">
-   </head>
-   <div class="container">
-   <div class="header-text text-center">
-      <div class="form-group">
-         <form method="post" action="/physicians/login">
-            <% if flash.has?(:message) %>
-            <%=flash[:message] %>
-            <% end %>
-            <h1 class="h3 mb-3 fw-normal">Please Login</h1>
-            <p>Physician Sign In</p>
-            <input type="text" class="form-control input-group-sm" id="floatingInput" name="username" placeholder="User123">
-            <label for="floatingInput">Username</label>
-            <br>
-            <input type="password" class="form-control input-group-sm" id="password" name="password" placeholder="Password">
-            <label for="floatingPassword">Password</label>
-            <div class="checkbox mb-3">
-            </div>
-            <input type="submit" value="Sign In">
-            <br>
-            <br>
-            <a class="button" href="/logout">Return to Main Menu</a>
-         </form>
-         </main>
-      </div>
-   </div>
-   </body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.101.0">
+
+    <title>Signin</title>
+
+    <style>
+      body {
+        background-image: url('/img/157802-turquoise-background.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top;
+        background-attachment: fixed;
+      }
+
+      h1 {
+        color: #F8F8FF;
+      }
+      a {
+        font-family: 'Roboto', sans-serif;
+        color: #F8F8FF;
+      }
+
+      p {
+        color: #F8F8FF;
+        font-family: 'Roboto', sans-serif;
+      }
+
+      .col-sm {
+        padding-top: 0px;
+      }
+
+      .form-group label, p{
+        color: #fff;
+      }
+
+      .form-group {
+        background-color: rgba(0, 0, 0, 0.6);
+	      margin: auto auto;
+	      padding: 40px;
+	      border-radius: 5px;
+	      box-shadow: 0 0 10px #000;
+	      position: absolute;
+	      top: 30px;
+	      bottom: 0;
+	      left: 0;
+	      right: 0;
+        max-width: 100%;
+	      width: 450px;
+	      height: 430px;
+      }
+    </style>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sign-in/">
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/docs/5.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link href="/css/signin.css" rel="stylesheet">
+  </head>
+
+<div class="container">
+<div class="header-text text-center"> 
+<div class="form-group">
+  <form method="post" action="/physicians/login">
+   <% if flash.has?(:message) %>
+    <%=flash[:message] %>
+      <% end %>
+    <h1 class="h3 mb-3 fw-normal">Please Login</h1>
+      <p>Physician Sign In</p>
+      <input type="text" class="form-control input-group-sm" id="floatingInput" name="username" placeholder="User123">
+      <label for="floatingInput">Username</label>
+    <br>
+      <input type="password" class="form-control input-group-sm" id="password" name="password" placeholder="Password">
+      <label for="floatingPassword">Password</label>
+
+    <div class="checkbox mb-3">
+    </div>
+    <input type="submit" value="Sign In">
+    <br>
+    <br>
+    <a class="button" href="/logout">Return to Main Menu</a>
+  </form>
+</main>
+</div>
+</div>
+</body>
 </html>
