@@ -17,17 +17,14 @@ gem 'sinatra', '~> 2.2', '>= 2.2.1'
 gem 'sinatra-activerecord', require: 'sinatra/activerecord'
 gem 'sysrandom'
 gem 'thin', '~> 1.7'
-gem 'erb-formatter'
 
 group :development do
   gem 'sqlite3'
   gem 'tux'
-  gem 'erb-formatter'
 end
 
 group :production do
   gem 'pg'
-  gem 'erb-formatter'
 end
 
 group :test do

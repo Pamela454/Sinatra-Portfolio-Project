@@ -1,79 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-
- <style>
-   body {
+   <style>
+      body {
       background-image: url('/img/157802-turquoise-background.jpg');
       background-repeat: no-repeat;
       background-size: cover;
       background-position: top;
       background-attachment: fixed;
-   }
-   a {
+      }
+      a {
       font-family: 'Roboto', sans-serif;
       color: black;
       text-shadow: none;
-   }
-   p {
+      }
+      p {
       font-family: 'Roboto', sans-serif;
       #color: #F8F8FF;
-   }
-   h2 {
+      }
+      h2 {
       text-align: center;
-   }
-   h6 {
+      }
+      h6 {
       text-align: left;
-   }
-   .outer {
+      }
+      .outer {
       margin-top: 100px;
-   }
-   @media (max-width: 650px) {
-    .outer {
+      }
+      @media (max-width: 650px) {
+      .outer {
       padding-top: 150px;
       }
-   }
- </style>
-
-
-<div class="container">
- <div class="header-text">    
-  <% if flash.has?(:message) %>
-   <%=flash[:message] %>
-    <% end %>
- </div>
-
-<div class="container outer">
-<div class="card w-100 shadow-sm p-3 mb-5 bg-white rounded" style="width: 18rem;">
- <div class="card-body">
-  <div class="card-header bg-transparent border-success">  
-   <form method="post" action="/patients/new">
-    <h2> Create Patient </h2>
-  </div>
-    <br>
-    <label>Username:
-     <input type="text" class="form-control input-group-sm" id="floatingInput" name="username" placeholder="username">  
-    </label>
-    <br>
-    <br>
-    <label>Password:
-     <input type="text" class="form-control input-group-sm" id="floatingInput" name="password" placeholder="password">
-    </label>
-    <br>
-    <br>
-    <label>Medical History:
-     <input type="text" class="form-control input-group-sm" id="floatingInput" name="medical_history" placeholder="medical history">
-    </label>
-    <br>
-    <br>
-    <label>Active Medical Problems:
-     <input type="text" class="form-control input-group-sm" id="floatingInput" name="active_problems" placeholder="active problems">
-    </label>
-    <br>
-    <br>
-     <input type="submit" value="Submit">
-
-   </form>
-  </div>
- </div>
- </div>
-</div>
+      }
+   </style>
+   <div class="container">
+      <div class="header-text">    
+         <% if flash.has?(:message) %>
+         <%=flash[:message] %>
+         <% end %>
+      </div>
+      <div class="container outer">
+         <div class="card w-100 shadow-sm p-3 mb-5 bg-white rounded" style="width: 18rem;">
+            <div class="card-body">
+               <div class="card-header bg-transparent border-success">
+                  <form method="post" action="/patients/new">
+                     <h2> Create Patient </h2>
+               </div>
+               <br>
+               <label>Username:
+               <input type="text" class="form-control input-group-sm" id="floatingInput" name="username" placeholder="username">  
+               </label>
+               <br>
+               <br>
+               <label>Password:
+               <input type="text" class="form-control input-group-sm" id="floatingInput" name="password" placeholder="password">
+               </label>
+               <br>
+               <br>
+               <label>Medical History:
+               <input type="text" class="form-control input-group-sm" id="floatingInput" name="medical_history" placeholder="medical history">
+               </label>
+               <br>
+               <br>
+               <label>Active Medical Problems:
+               <input type="text" class="form-control input-group-sm" id="floatingInput" name="active_problems" placeholder="active problems">
+               </label>
+               <br>
+               <br>
+               <input type="submit" value="Submit">
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
