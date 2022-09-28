@@ -25,9 +25,14 @@ h2 {
 h6 {
  text-align: left;
 }
+@media (max-width: 650px) {
+    .top {
+      padding-top: 200px;
+      }
+   }
  </style>
 
-<div class="container">
+<div class="container top">
  <div class="header-text text-center">  
  <form method="post" action="/patients/<%= @patient.id %>"> 
  <% if flash.has?(:message) %>
