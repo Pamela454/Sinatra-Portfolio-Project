@@ -13,7 +13,7 @@ Fork the program and copy the SSH link. Type git clone 'SSH link' in the desired
 ## Usage
 <img width="1426" alt="Screen Shot 2022-09-22 at 3 24 01 PM" src="https://user-images.githubusercontent.com/11492782/191834900-4e1b4bab-8256-4d34-b686-c2e052bcce3b.png">
 
-<img width="1080" alt="Screen Shot 2022-04-14 at 1 06 44 PM" src="https://user-images.githubusercontent.com/11492782/163440498-e347086b-4c73-4d3a-8a25-31d2776019df.png">
+<img width="1440" alt="Screen Shot 2022-09-22 at 9 56 36 PM" src="https://user-images.githubusercontent.com/11492782/192820952-9739a7e9-29b3-467f-9106-c4359efe2881.png">
 
 
 TODO: 
