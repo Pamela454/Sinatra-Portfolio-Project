@@ -1,5 +1,6 @@
-class ChangeIntegerLimitPatients < ActiveRecord::Migration[5.2]
+# frozen_string_literal: true
 
+class ChangeIntegerLimitPatients < ActiveRecord::Migration[5.2]
   def up
     change_column :patients, :physician_id, :bigint
     change_column :patients, :id, :bigint

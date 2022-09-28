@@ -1,6 +1,8 @@
-ENV['SINATRA_ENV'] ||= "development"
+# frozen_string_literal: true
 
-require './config/environment.rb' 
+ENV['SINATRA_ENV'] ||= 'development'
+
+require './config/environment'
 require 'pry'
 
 use Rack::MethodOverride
