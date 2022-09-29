@@ -39,6 +39,9 @@
    h1 {
       color: #F8F8FF;
    }
+   .row {
+      padding: 10px;
+   }
    </style>
 <div class="container">
 <div class="form-box">
@@ -54,12 +57,15 @@
    <a href="/patients/<%= @patient.id %>"> Patient Profile Page </a>
    <a class="button" href="/logout">Logout</a>
    <% else %>
-   <p class="font-weight-bold">Please sign in below:</p>
-   <br>
-   <a href="/physicians/login"> Physician Sign In </a>
-   <br>
-   <br>
-   <a href="/patients/login"> Patient Sign In </a>
+   <div class="row">
+      <p class="font-weight-bold">Please sign in below:</p>
+   </div>
+   <div class="row">
+      <a href="/physicians/login"> Physician Sign In </a>
+   </div>
+   <div class="row">
+      <a href="/patients/login"> Patient Sign In </a>
+   </div>
  <% end %>
 </div>
 </div>

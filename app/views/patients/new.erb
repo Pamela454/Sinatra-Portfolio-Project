@@ -32,6 +32,9 @@
       padding-top: 150px;
       }
    }
+   .row {
+      padding: 10px;
+   }
  </style>
 
 
@@ -49,29 +52,27 @@
    <form method="post" action="/patients/new">
     <h2> Create Patient </h2>
   </div>
-    <br>
+   <div class="row">
     <label>Username:
-     <input type="text" class="form-control input-group-sm" id="floatingInput" name="username" placeholder="username">  
     </label>
-    <br>
-    <br>
+   </div>
+   <input type="text" class="form-control input-group-sm" id="floatingInput" name="username" placeholder="username">  
+   <div class="row">
     <label>Password:
-     <input type="text" class="form-control input-group-sm" id="floatingInput" name="password" placeholder="password">
     </label>
-    <br>
-    <br>
+   <input type="text" class="form-control input-group-sm" id="floatingInput" name="password" placeholder="password">
+   </div>
+   <div class="row">
     <label>Medical History:
-     <input type="text" class="form-control input-group-sm" id="floatingInput" name="medical_history" placeholder="medical history">
     </label>
-    <br>
-    <br>
+   </div>
+   <input type="text" class="form-control input-group-sm" id="floatingInput" name="medical_history" placeholder="medical history">
+   <div class="row">
     <label>Active Medical Problems:
-     <input type="text" class="form-control input-group-sm" id="floatingInput" name="active_problems" placeholder="active problems">
     </label>
-    <br>
-    <br>
+   </div>
+   <input type="text" class="form-control input-group-sm" id="floatingInput" name="active_problems" placeholder="active problems">
      <input type="submit" value="Submit">
-
    </form>
   </div>
  </div>

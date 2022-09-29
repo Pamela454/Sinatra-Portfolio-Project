@@ -25,6 +25,9 @@ h2 {
 h6 {
  text-align: left;
 }
+.row {
+  padding: 10px;
+}
 @media (max-width: 650px) {
     .top {
       padding-top: 200px;
@@ -68,19 +71,21 @@ h6 {
   <div class="card-body">
   <h6 class="text-justify fw-bold">Please enter the Patient Username, Medical History, and Active Medical Problems as you would like them to appear:</h6>
     <input id="hidden" type="hidden" name="_method" value="PATCH">
-    <br>
+    <div class="row">   
      <label>Username:
      </label> 
+    </div>
       <input type="text" class="form-control input-group-sm" id="floatingInput" name="username" placeholder="username"> 
-    <br>
+    <div class="row">   
     <label>Medical History:
     </label>
+    </div>
      <input type="text" class="form-control input-group-sm" id="floatingInput" name="medical_history" placeholder="medical history">
-    <br>
+    <div class="row">   
     <label>Active Medical Problems:
     </label>
+    </div>
      <input type="text" class="form-control input-group-sm" id="floatingInput" name="active_problems" placeholder="active problems">
-     <br>
      <input type="submit" value="Submit Edits">
   </form>
 

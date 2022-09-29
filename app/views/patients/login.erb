@@ -55,6 +55,9 @@
 	      width: 450px;
 	      height: 430px;
       }
+      .row {
+        padding: 10px;
+      }
     </style>
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sign-in/">
     <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -72,19 +75,20 @@
     <h1 class="h3 mb-3 fw-normal">Please Login</h1>
       <p>Patient Sign In</p>
       <input type="text" class="form-control input-group-sm" id="floatingInput" name="username" placeholder="name@example.com">
+      <div class="row">   
       <label for="floatingInput">Email address</label>
-    <br>
+      </div>
       <input type="password" class="form-control input-group-sm" id="floatingPassword" name="password" placeholder="Password">
+      <div class="row">   
       <label for="floatingPassword">Password</label>
+      </div>
 
     <div class="checkbox mb-3">
     </div>
     <input type="submit" value="Sign In">
-    <br>
-    <br>
+    <div class="row">   
     <a class="button" href="/logout">Return to Main Menu</a>
-    <br>
-    <br>
+    </div>
   </form>
 </main>
 </div>

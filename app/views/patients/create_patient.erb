@@ -53,6 +53,9 @@
 	      width: 450px;
 	      height: 430px;
       }
+      .row {
+        padding: 10px;
+      }
     </style>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sign-in/">
@@ -68,22 +71,25 @@
 <% if flash.has?(:message) %>
   <%=flash[:message] %>
 <% end %>
-<br>
 <h1 class="h3 mb-3 fw-normal">Please Sign Up</h1>
+  <div class="row">
   <label> Patient Username:
     <%=@new_user.username %>
   </label>
+  </div>
   <input type="text" class="form-control input-group-sm" id="floatingInput" name="username" placeholder="username">
-  <br>
+  <div class="row">
   <label> Patient Password:
     <%=@new_user.password %>
   </label>
   <input type="text" class="form-control input-group-sm" id="floatingInput" name="password" placeholder="password">
-  <br>
+  </div>
   <input type="submit" value="Submit Profile">
-  <br>
-  <br>
+  <div class="row">
+  <div class="row">
   <a class="button" href="/logout">Return to Main Menu</a>
+  </div>
+  </div>
 </form>
 </main>
 </div>
