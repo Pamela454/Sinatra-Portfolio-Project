@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <title>Signin</title>
+
+    <style>
+      body {
+        background-image: url('/img/157802-turquoise-background.jpg');
+      }
+      h1 {
+        color: #F8F8FF;
+      }
+      .col-sm {
+        padding-top: 0px;
+      }
+      .form-group label, p{
+        color: #fff;
+      }
+      .form-group {
+        background-color: rgba(0, 0, 0, 0.6);
+	      margin: auto auto;
+	      padding: 40px;
+	      border-radius: 5px;
+	      box-shadow: 0 0 10px #000;
+	      position: absolute;
+	      top: 30px;
+	      bottom: 0;
+	      left: 0;
+	      right: 0;
+        max-width: 100%;
+	      width: 450px;
+	      height: 430px;
+      }
+      .row {
+        padding: 10px;
+      }
+    </style>
+
+  </head>
+
+<div class="container">
+<div class="header-text text-center"> 
+<div class="form-group">
+  <form method="post" action="/physicians/login">
+   <% if flash.has?(:message) %>
+    <%=flash[:message] %>
+      <% end %>
+    <div class="row">
+    <h1 class="h3 mb-3 fw-normal">Please Login</h1>
+      <p>Physician Sign In</p>
+    </div>
+      <input type="text" class="form-control input-group-sm" id="floatingInput" name="username" placeholder="User123">
+    <div class="row">  
+      <label for="floatingInput">Username</label>
+    </div>
+      <input type="password" class="form-control input-group-sm" id="password" name="password" placeholder="Password">
+    <div class="row">   
+      <label for="floatingPassword">Password</label>
+    </div>
+    <div class="checkbox mb-3">
+    </div>
+    <input type="submit" value="Sign In">
+    <br>
+    <br>
+    <a class="button" href="/logout">Return to Main Menu</a>
+  </form>
+</main>
+</div>
+</div>
+</body>
+</html>
