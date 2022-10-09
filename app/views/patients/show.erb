@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+   <style>
+   body {
+        background-image: url('/img/157802-turquoise-background.jpg');
+   }
+   a {
+      color: black;
+      text-shadow: none;
+   }
+   p {
+      font-family: 'Roboto', sans-serif;
+      margin-left: 15px;
+   }
+   .col-lg {
+     padding-top: 25px;
+     max-width: 100%;
+   }
+   header {
+    text-align: center!important;
+   }
+   h2, h4, h5 {
+      #color: #F8F8FF;
+      #margin-left: 250px;
+   }
+   h3 {
+      #color: #F8F8FF;
+      text-align: justify; 
+      text-justify: inter-word;
+      #margin-left: 300px;
+      #padding-top: 100px;
+   }
+   .navbar-nav .nav-link.active, .navbar-nav .show>.nav-link {
+      color: #F8F8FF;
+   }
+   </style>
+
+ </head>
+
+<div class="container">
+<div class="header text-center">
+<% if flash.has?(:message) %>
+  <h3 class="text-center"><%= flash[:message] %></h3>
+    <% end %>
+</div>
+
+<section>
+<div class="card w-100 shadow-sm p-3 mb-5 bg-white rounded" style="width: 18rem;">
+<div class="card-body">
+  <div class="col-lg">
+    <div class="col">
+    <div class="card-header bg-transparent border-success">         
+    <div class ="row">
+     <h4 class="card-text text-left fw-bold"> Name:
+          <%= @patient.username %>
+     </h4>
+    </div>
+    </div>
+    <p class="card-text text-justify fw-bold">
+      <h5 class="fw-bold"> Medical History:</h5>
+      <%= @patient.medical_history %>
+      </p>
+    </p>
+    <p class="card-text text-justify fw-bold">
+    <h5 class="fw-bold"> Active Problems: </h5>
+      <%= @patient.active_problems %>
+       </p> 
+    </p>
+    </div>
+    </div>
+  </div>
+</section>
+</div>

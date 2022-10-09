@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <style>
+      body {
+        background-image: url('/img/157802-turquoise-background.jpg');
+      }
+      h1 {
+        color: #F8F8FF;
+      }
+      .form-group label, p{
+        color: #fff;
+      }
+      .col-sm {
+        padding-top: 0px;
+      }
+      .form-group {
+        background-color: rgba(0, 0, 0, 0.6);
+	      margin: auto auto;
+	      padding: 40px;
+	      border-radius: 5px;
+	      box-shadow: 0 0 10px #000;
+	      position: absolute;
+	      top: 30px;
+	      bottom: 0;
+	      left: 0;
+	      right: 0;
+        max-width: 100%;
+	      width: 450px;
+	      height: 430px;
+      }
+      .row {
+        padding: 10px;
+      }
+    </style>
+
+  </head>
+
+<div class="container">
+<div class="header-text text-center"> 
+<div class="form-group">
+<form method="post" action="/patients/signup">
+<% if flash.has?(:message) %>
+  <%=flash[:message] %>
+<% end %>
+<h1 class="h3 mb-3 fw-normal">Please Sign Up</h1>
+  <div class="row">
+  <label> Patient Username:
+    <%=@new_user.username %>
+  </label>
+  </div>
+  <input type="text" class="form-control input-group-sm" id="floatingInput" name="username" placeholder="username">
+  <div class="row">
+  <label> Patient Password:
+    <%=@new_user.password %>
+  </label>
+  <input type="text" class="form-control input-group-sm" id="floatingInput" name="password" placeholder="password">
+  </div>
+  <input type="submit" value="Submit Profile">
+  <div class="row">
+  <div class="row">
+  <a class="button" href="/logout">Return to Main Menu</a>
+  </div>
+  </div>
+</form>
+</main>
+</div>
+</div>
+</body>
+</html>
