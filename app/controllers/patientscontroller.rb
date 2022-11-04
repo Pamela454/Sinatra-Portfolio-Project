@@ -24,7 +24,8 @@ class PatientsController < ApplicationController
       @new_user = Patient.create(username: params[:username], password: params[:password])
       if @new_user.save
         session[:id] = @new_user.id
-        flash[:message] = 'Successful creation of profile. Please log in.'
+        flash[:message] = 'Successful creation of profile.'
+        redirect "/patients/#{@new_user.id}"
       else
         flash[:message] = 'Not valid profile data.'
       end
@@ -57,7 +58,7 @@ class PatientsController < ApplicationController
   end
 
   get '/patients/new' do
-    if current_user.instance_of?(::Physician)
+    if session[:user_type] == "physician"
       erb :"/patients/new"
     else
       flash[:message] = 'You do not have access to that feature.'
@@ -90,6 +91,10 @@ class PatientsController < ApplicationController
       @patient = Patient.find_by(id: session[:id])
       flash[:message] = 'Successful login.'
       erb :"/patients/show"
+    elsif session[:user_type] == nil && session[:id] != nil
+      @patient = Patient.find_by(id: session[:id])
+      session[:user_type] = "patient"
+      erb :"/patients/show"      
     else
       flash[:message] = 'You do not have access to that feature.'
       erb :"/patients/login"

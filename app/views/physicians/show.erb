@@ -60,7 +60,6 @@
       padding-top: 200px;
       }
    }
-   
   </style>
 <div class="container">
 <div class="form-box">
@@ -74,6 +73,7 @@
 <section>
 <div class="col-lg ml-250 ml-">
    <div class="text-justify">
+      <% if @patients != [] %>
          <% @patients.each do |patient| %>
             <div class="card w-100 shadow-sm p-3 mb-5 bg-white rounded" style="width: 18rem;">
             <div class="card-body">
@@ -103,6 +103,9 @@
             </div>
             <%end%>
             </div>
+      <%elsif @patients == []%>
+         <h3 class="text-center">Please add a Patient to Your Patient List Using Link Above</h3>
+      <%end%>
 </section>
 </div>
 </div>

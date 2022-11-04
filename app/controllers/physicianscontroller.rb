@@ -24,7 +24,8 @@ class PhysiciansController < ApplicationController
       @new_user = Physician.create(username: params[:username], npi: params[:npi], password: params[:password])
       if @new_user.save
         session[:id] = @new_user.id
-        flash[:message] = 'Successful creation of profile. Please log in.'
+        flash[:message] = 'Successful creation of profile.'
+        redirect "/physicians/#{@new_user.id}"
       else
         flash[:message] = 'Not valid profile data.'
       end
@@ -56,7 +57,12 @@ class PhysiciansController < ApplicationController
     if current_user.instance_of?(Physician) && session[:id] == params[:id].to_i
       @physician = Physician.find_by(id: params[:id])
       @patients = @physician.patients
-      erb :"/physicians/show"
+      erb :"/physicians/show" 
+    elsif session[:user_type] == nil && session[:id] != nil
+      @physician = Physician.find_by(id: session[:id])
+      session[:user_type] = "physician"
+      @patients = @physician.patients
+      erb :"/physicians/show" 
     else
       flash[:message] = 'You do not have access to that page.'
       redirect '/physicians/login'

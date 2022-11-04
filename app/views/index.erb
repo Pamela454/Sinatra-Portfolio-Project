@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-   <style>
+  <style>
    body {
       background-image: url('/img/surgery-1807541_1920 2.jpg');
    } 
@@ -30,34 +30,39 @@
    .row {
       padding: 10px;
    }
-   </style>
-<div class="container">
-<div class="form-box">
-<div class="header-text text-center">   
-<% if flash.has?(:message) %>
-<%=flash[:message] %>
-<% end %>
-   <h1>Welcome</h1>
-   <% if session[:user_type]=="physician" %>
-   <a href="/physicians/<%= @physician.id %>"> Physician Profile Page </a>
-   <a class="button" href="/logout">Logout</a>
-   <% elsif session[:user_type]=="patient" %>
-   <a href="/patients/<%= @patient.id %>"> Patient Profile Page </a>
-   <a class="button" href="/logout">Logout</a>
-   <% else %>
-   <div class="row">
-      <p class="font-weight-bold">Please sign in below:</p>
-   </div>
-   <div class="row">
-      <a href="/physicians/login"> Physician Sign In </a>
-   </div>
-   <div class="row">
-      <a href="/patients/login"> Patient Sign In </a>
-   </div>
- <% end %>
-</div>
-</div>
-</div>   
-
-
-
+  </style>
+  <div class="container">
+    <div class="form-box">
+      <div class="header-text text-center">
+        <% if flash.has?(:message) %>
+          <%= flash[:message] %>
+        <% end %>
+        <h1>Welcome</h1>
+        <% if session[:user_type]=="physician" %>
+          <a href="/physicians/<%= @physician.id %>">
+            Physician Profile Page
+          </a>
+          <a class="button" href="/logout">Logout</a>
+        <% elsif session[:user_type]=="patient" %>
+          <a href="/patients/<%= @patient.id %>">
+            Patient Profile Page
+          </a>
+          <a class="button" href="/logout">Logout</a>
+        <% else %>
+          <div class="row">
+            <p class="font-weight-bold">Please sign in below:</p>
+          </div>
+          <div class="row">
+            <a href="/physicians/login">
+              Physician Sign In
+            </a>
+          </div>
+          <div class="row">
+            <a href="/patients/login">
+              Patient Sign In
+            </a>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
