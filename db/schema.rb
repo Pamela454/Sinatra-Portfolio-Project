@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 5) do
     t.integer 'physician_id'
     t.string 'medical_history'
     t.string 'active_problems'
+    t.integer 'heart_rate'
+    t.string 'blood_pressure'
   end
 
   create_table 'physicians', force: :cascade do |t|

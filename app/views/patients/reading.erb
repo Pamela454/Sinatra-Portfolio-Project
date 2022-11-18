@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+ <style>
+   body {
+      background-image: url('/img/157802-turquoise-background.jpg');
+   }
+   a {
+      color: black;
+      text-shadow: none;
+   }
+   h2 {
+      text-align: center;
+   }
+   h6 {
+      text-align: left;
+   }
+   .outer {
+      margin-top: 100px;
+   }
+   @media (max-width: 650px) {
+    .outer {
+      padding-top: 150px;
+      }
+   }
+   .row {
+      padding: 10px;
+   }
+ </style>
+
+
+<div class="container">
+ <div class="header-text">    
+  <% if flash.has?(:message) %>
+   <%=flash[:message] %>
+    <% end %>
+ </div>
+
+<div class="container outer">
+<div class="card w-100 shadow-sm p-3 mb-5 bg-white rounded" style="width: 18rem;">
+ <div class="card-body">
+  <div class="card-header bg-transparent border-success">  
+   <form method="post" action="/patients/new">
+    <h2> Add Reading </h2>
+  </div>
+   <div class="row">
+    <label>Heart Rate:
+    </label>
+   </div>
+   <input type="text" class="form-control input-group-sm" id="floatingInput" name="heart_rate" placeholder="heart_rate">  
+   <div class="row">
+    <label>Blood Pressure:
+    </label>
+   <input type="text" class="form-control input-group-sm" id="floatingInput" name="blood_pressure" placeholder="blood_pressure">
+   </div>
+     <input type="submit" value="Submit">
+   </form>
+  </div>
+ </div>
+ </div>
+</div>
