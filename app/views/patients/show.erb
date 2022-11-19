@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
 
-   <style>
+    <style>
    body {
         background-image: url('/img/157802-turquoise-background.jpg');
    }
@@ -35,42 +35,59 @@
    .navbar-nav .nav-link.active, .navbar-nav .show>.nav-link {
       color: #F8F8FF;
    }
-   </style>
+    </style>
 
- </head>
+  </head>
 
-<div class="container">
-<div class="header text-center">
-<% if flash.has?(:message) %>
-  <h3 class="text-center"><%= flash[:message] %></h3>
-    <% end %>
-</div>
+  <div class="container">
+    <div class="header text-center">
+      <% if flash.has?(:message) %>
+        <h3 class="text-center"><%= flash[:message] %></h3>
+      <% end %>
+    </div>
 
-<section>
-<div class="card w-100 shadow-sm p-3 mb-5 bg-white rounded" style="width: 18rem;">
-<div class="card-body">
-  <div class="col-lg">
-    <div class="col">
-    <div class="card-header bg-transparent border-success">         
-    <div class ="row">
-     <h4 class="card-text text-left fw-bold"> Name:
-          <%= @patient.username %>
-     </h4>
-    </div>
-    </div>
-    <p class="card-text text-justify fw-bold">
-      <h5 class="fw-bold"> Medical History:</h5>
-      <%= @patient.medical_history %>
-      </p>
-    </p>
-    <p class="card-text text-justify fw-bold">
-    <h5 class="fw-bold"> Active Problems: </h5>
-      <%= @patient.active_problems %>
-       </p> 
-    </p>
-    <a href="/patients/reading">Add A New Blood Pressure and/or Heart Rate Reading</a>
-    </div>
-    </div>
+    <section>
+      <div
+        class="card w-100 shadow-sm p-3 mb-5 bg-white rounded"
+        style="width: 18rem;"
+      >
+        <div class="card-body">
+          <div class="col-lg">
+            <div class="col">
+              <div class="card-header bg-transparent border-success">
+                <div class ="row">
+                <h4 class="card-text text-left fw-bold">
+                  Name:
+                  <%= @patient.username %>
+                </h4>
+              </div>
+            </div>
+            <p class="card-text text-justify fw-bold">
+              <h5 class="fw-bold">
+                Medical History:</h5>
+              <%= @patient.medical_history %>
+            </p>
+            <p class="card-text text-justify fw-bold">
+              <h5 class="fw-bold">
+                Active Problems:
+              </h5>
+              <%= @patient.active_problems %>
+            </p>
+            <p class="card-text text-justify fw-bold">
+              <h5 class="fw-bold">
+                Blood Pressure:
+              </h5>
+              <%= @patient.blood_pressure %>
+            </p>
+            <p class="card-text text-justify fw-bold">
+              <h5 class="fw-bold">
+                Heart Rate:
+              </h5>
+              <%= @patient.heart_rate %>
+            </p>
+            <a href="/patients/<%=patient.id%/reading">Add A New Blood Pressure and/or Heart Rate Reading</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
-</section>
-</div>

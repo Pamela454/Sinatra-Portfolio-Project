@@ -137,18 +137,17 @@ class PatientsController < ApplicationController
     end
   end
 
-  get '/patients/reading' do 
-    binding.pry 
-    if current_user.instance_of?(Physician)
+  get '/patients/:id/reading' do 
+    if current_user.instance_of?(Patient)
       @patient = Patient.find_by(id: params[:id])
       erb :"/patients/reading"
     else
       flash[:message] = 'You do not have access to that feature.'
-      redirect '/patients/login'
+      redirect "/patients/#{@patient.id}"
     end
   end
 
-  patch '/patients/reading' do 
+  patch '/patients/:id/reading' do 
     @patient = Patient.find_by(username: params[:username])
     @patient.update_attribute(:blood_pressure, params[:blood_pressure]) if params[:blood_pressure] != ''
     @patient.update_attribute(:heart_rate, params[:heart_rate]) if params[:heart_rate] != ''
