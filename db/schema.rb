@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 9) do
+ActiveRecord::Schema.define(version: 8) do
+
+  create_table "measurements", force: :cascade do |t|
+    t.string "blood_pressure"
+    t.integer "heart_rate"
+    t.datetime "date_time"
+    t.integer "patient_id"
+  end
 
   create_table "patients", id: :bigint, default: nil, force: :cascade do |t|
     t.string "username"
@@ -19,8 +26,6 @@ ActiveRecord::Schema.define(version: 9) do
     t.integer "physician_id"
     t.string "medical_history"
     t.string "active_problems"
-    t.string "blood_pressure"
-    t.integer "heart_rate"
   end
 
   create_table "physicians", force: :cascade do |t|

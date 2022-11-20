@@ -89,6 +89,7 @@ class PatientsController < ApplicationController
   get '/patients/:id' do
     if session[:user_type] == 'patient' && session[:id] == params[:id].to_i
       @patient = Patient.find_by(id: session[:id])
+      @measurements = @patient.measurements
       flash[:message] = 'Successful login.'
       erb :"/patients/show"
     elsif session[:user_type] == nil && session[:id] != nil
@@ -137,22 +138,27 @@ class PatientsController < ApplicationController
     end
   end
 
-  get '/patients/:id/reading' do 
+  get '/patients/:id/measurement' do 
     if current_user.instance_of?(Patient)
       @patient = Patient.find_by(id: params[:id])
-      erb :"/patients/reading"
+      erb :"/patients/measurement"
     else
       flash[:message] = 'You do not have access to that feature.'
       redirect "/patients/#{@patient.id}"
     end
   end
 
-  patch '/patients/:id/reading' do 
-    @patient = Patient.find_by(username: params[:username])
-    @patient.update_attribute(:blood_pressure, params[:blood_pressure]) if params[:blood_pressure] != ''
-    @patient.update_attribute(:heart_rate, params[:heart_rate]) if params[:heart_rate] != ''
-    flash[:message] = 'Successfully added new blood pressure/heart rate.'
-    redirect "/patients/#{@patient.id}"
+  post '/patients/:id/measurement' do 
+    binding.pry 
+    @patient = Patient.find_by(id: params[:id])
+     if params[:blood_pressure] && !params[:heart_rate].nil?
+      @measurement = Measurement.create(blood_pressure: params[:blood_pressure], heart_rate: params[:heart_rate], date_time: DateTime.now, patient_id: params[:id])
+      flash[:message] = 'Successfully added new blood pressure/heart rate.'
+      redirect "/patients/#{@patient.id}"
+     else
+      flash[:message] = 'Please enter a valid measurement.'
+      redirect "/patients/#{@patient.id}"
+     end
   end
 
   get '/logout' do

@@ -35,6 +35,9 @@
    .navbar-nav .nav-link.active, .navbar-nav .show>.nav-link {
       color: #F8F8FF;
    }
+   .measurements {
+      padding-bottom: 30px;
+   }
     </style>
 
   </head>
@@ -62,30 +65,48 @@
                 </h4>
               </div>
             </div>
+
             <p class="card-text text-justify fw-bold">
               <h5 class="fw-bold">
                 Medical History:</h5>
               <%= @patient.medical_history %>
             </p>
+
             <p class="card-text text-justify fw-bold">
               <h5 class="fw-bold">
                 Active Problems:
               </h5>
               <%= @patient.active_problems %>
             </p>
-            <p class="card-text text-justify fw-bold">
-              <h5 class="fw-bold">
-                Blood Pressure:
-              </h5>
-              <%= @patient.blood_pressure %>
-            </p>
-            <p class="card-text text-justify fw-bold">
-              <h5 class="fw-bold">
-                Heart Rate:
-              </h5>
-              <%= @patient.heart_rate %>
-            </p>
-            <a href="/patients/<%=patient.id%/reading">Add A New Blood Pressure and/or Heart Rate Reading</a>
+            <div class="measurements">
+              <div class="card-header bg-transparent border">
+                <% if @measurements != "null" %>
+                  <% @measurements.each do |measurement| %>
+                    <p class="card-text text-justify fw-bold">
+                      <h5 class="fw-bold">
+                        Blood Pressure:
+                      </h5>
+                      <%= measurement.blood_pressure %>
+                    </p>
+
+                    <p class="card-text text-justify fw-bold">
+                      <h5 class="fw-bold">
+                        Heart Rate:
+                      </h5>
+                      <%= measurement.heart_rate %>
+                    </p>
+
+                    <p class="card-text-measurement text-justify fw-bold">
+                      <h5 class="fw-bold">
+                        Date/Time:
+                      </h5>
+                      <%= measurement.date_time %>
+                    </p>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+            <a href="/patients/<%=@patient.id%>/measurement">Add A New Blood Pressure and/or Heart Rate Reading</a>
           </div>
         </div>
       </div>
