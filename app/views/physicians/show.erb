@@ -73,6 +73,16 @@
 <section>
 <div class="col-lg ml-250 ml-">
    <div class="text-justify">
+    <div class="card w-100 shadow-sm p-3 mb-5 bg-white rounded" style="width: 18rem;">
+      <div class="card-body">
+         <div class="card-header lg-transparent border">
+         <p class="card-text text-justify fw-bold">
+          <h5 class="fw-bold"> Please find your patient list below. You may add, edit, and delete patients as well as their medical history and active problems. 
+          You can also view all submitted blood pressures and heart rates from your patients.</h5> 
+         </p>     
+         </div>
+      </div>
+    </div>    
       <% if @patients != [] %>
          <% @patients.each do |patient| %>
             <div class="card w-100 shadow-sm p-3 mb-5 bg-white rounded" style="width: 18rem;">
