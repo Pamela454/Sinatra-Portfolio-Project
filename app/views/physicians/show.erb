@@ -91,6 +91,20 @@
                <h5 class="fw-bold">Active Problems: </h5>
                <%=patient.active_problems %>
             </p>
+            <% if patient.measurements != []%>
+            <p class="card-text text-justify">
+               <h5 class="fw-bold">Blood Pressure: </h5>
+               <%=patient.measurements[patient.id-1].blood_pressure%>
+            </p>
+            <p class="card-text text-justify">
+               <h5 class="fw-bold">Heart Rate: </h5>
+               <%=patient.measurements[patient.id-1].heart_rate %>
+            </p>
+            <p class="card-text text-justify">
+               <h5 class="fw-bold">Date: </h5>
+               <%=patient.measurements[patient.id-1].date_time %>
+            </p>
+            <%end%>
             <h5 class="fw-bold">Click to edit or delete the patient below.</h5>
             <div class="text-justify"> <a class="button" href="/patients/<%=patient.id%>/edit">Edit Patient</a>
             <br>
