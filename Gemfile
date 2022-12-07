@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
-ruby '2.7.0'
+ruby '3.1.0'
 # Specify your gem's dependencies in emr.gemspec
 gem 'activerecord', '~> 5.0', '>= 5.0.0.1'
 gem 'active_record_fix_integer_limit'
