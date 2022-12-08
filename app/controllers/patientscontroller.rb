@@ -11,7 +11,6 @@ class PatientsController < ApplicationController
       flash[:message] = 'You do not have access to that feature.'
       redirect '/patients/signup'
     else
-      @new_user = Patient.create(username: params[:username], password: params[:password])
       erb :"/patients/create_patient"
     end
   end
