@@ -44,7 +44,7 @@
 <div class="form-group">
   <form method="post" action="/physicians/login">
    <% if flash.has?(:message) %>
-    <%=flash[:message] %>
+    <h2 class="text-justify"><%=flash[:message] %>
       <% end %>
     <div class="row">
     <h1 class="h3 mb-3 fw-normal">Please Login</h1>

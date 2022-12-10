@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
-ruby '3.1.0'
+ruby '2.7.0'
 # Specify your gem's dependencies in emr.gemspec
-gem 'activerecord', '~> 5.0', '>= 5.0.0.1'
+gem 'activemodel', '~> 7.0', '>= 7.0.4'
+gem 'activerecord', '~> 7.0', '>= 7.0.4'
 gem 'active_record_fix_integer_limit'
 gem 'bcrypt', '~> 3.1.2'
 gem 'dm-core'
@@ -13,8 +14,8 @@ gem 'rack-flash3'
 gem 'rake'
 gem 'require_all'
 gem 'shotgun', git: 'https://github.com/delonnewman/shotgun.git'
-gem 'sinatra', '~> 2.2', '>= 2.2.1'
-gem 'sinatra-activerecord', require: 'sinatra/activerecord'
+gem 'sinatra', '~> 3.0', '>= 3.0.4'
+gem 'sinatra-activerecord', '~> 2.0', '>= 2.0.26', require: 'sinatra/activerecord'
 gem 'sysrandom'
 gem 'thin', '~> 1.7'
 gem 'erb-formatter'

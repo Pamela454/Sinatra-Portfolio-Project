@@ -38,11 +38,15 @@ class PhysiciansController < ApplicationController
   end
 
   post '/physicians/login' do
-    @physician = Physician.find_by(username: params[:username])
-    if @physician&.authenticate(params[:password])
+    @username = params[:username]
+    binding.pry 
+    @physician = Physician.find_by(username: @username)
+    binding.pry
+    if @physician.authenticate(params[:password])
       session[:id] = @physician.id
       session[:user_type] = 'physician'
       session[:username] = params[:username]
+      binding.pry 
       current_user
       flash[:message] = 'Successful login.'
       redirect "/physicians/#{@physician.id}"
@@ -53,6 +57,7 @@ class PhysiciansController < ApplicationController
   end
 
   get '/physicians/:id' do
+    binding.pry 
     if current_user.instance_of?(Physician) && session[:id] == params[:id].to_i
       @physician = Physician.find_by(id: params[:id])
       @patients = @physician.patients

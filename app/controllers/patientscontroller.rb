@@ -42,8 +42,9 @@ class PatientsController < ApplicationController
     end
   end
 
-  post '/patients/login' do
-    @patient = Patient.find_by(username: params[:username])
+  post '/patients/login' do   
+    binding.pry 
+    @patient = Patient.find_by(username: "<% params[:username]%>")
     current_user
     if @patient&.authenticate(params[:password])
       session[:username] = params[:username]
