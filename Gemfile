@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
-ruby '2.7.0'
+ruby '3.1.0'
 # Specify your gem's dependencies in emr.gemspec
 gem 'activemodel', '~> 7.0', '>= 7.0.4'
 gem 'activerecord', '~> 7.0', '>= 7.0.4'
@@ -28,7 +28,6 @@ end
 
 group :production do
   gem 'pg'
-  gem 'erb-formatter'
 end
 
 group :test do

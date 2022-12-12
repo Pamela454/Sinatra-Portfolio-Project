@@ -4,7 +4,7 @@ TODO: This gem allows physicians to manage patient lists and for patients to als
 
 ## Prerequisites
 
-Requires Ruby version 2.7.0 or later
+Requires Ruby version 3.1.0 or later
 
 ## Installation
 
