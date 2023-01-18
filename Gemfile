@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 ruby '3.1.0'
 # Specify your gem's dependencies in emr.gemspec
 gem 'activemodel', '~> 7.0', '>= 7.0.4'
-gem 'activerecord', '~> 7.0', '>= 7.0.4'
+gem 'activerecord', '~> 7.0'
 gem 'active_record_fix_integer_limit'
 gem 'bcrypt', '~> 3.1.2'
 gem 'dm-core'
